@@ -1,0 +1,33 @@
+{
+  "name": "funkoshop-clonado",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Clonación de página web de una tienda de Funkos ficticia llamada Funkoshop.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxiderecho/funkoshop-clonado.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "JavaScript"
+  ],
+  "author": "Maxi Derecho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxiderecho/funkoshop-clonado/issues"
+  },
+  "homepage": "https://github.com/maxiderecho/funkoshop-clonado#readme",
+  "dependencies": {
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
