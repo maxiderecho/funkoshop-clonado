@@ -1,9 +1,10 @@
 import express from 'express';
+import { shop , item , addItem , cart } from '../controllers/shopController.js';
 
 /* Configuramos Express Router */
 export const shopRouter = express.Router();
 
-shopRouter.get("/", (req, res) => {res.send("Shop")});
-shopRouter.get("/item/:id", (req, res) => {res.send("Item")});
-shopRouter.post("/item/:id", (req, res) => {res.send("Agregar item al carrito")});
-shopRouter.get("/cart", (req, res) => {res.send("Cart")});
+shopRouter.get("/", shop);
+shopRouter.get("/item/:id", item);
+shopRouter.post("/item/:id", addItem);
+shopRouter.get("/cart", cart);
