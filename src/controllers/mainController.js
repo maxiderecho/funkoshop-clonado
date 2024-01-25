@@ -1,13 +1,21 @@
-/* Configuro capa de controladores para mainRoutes.js */
+import { findAll } from "../models/productModel.js";
 
-export const home = (req, res) => {
-    res.send("Home");
+/* Configuro capa de controladores para mainRoutes.js */
+export const home = async (req, res) => {
+    const items = await findAll();
+
+    res.render('../views/index.ejs', {
+        title: 'Home',
+        items
+    });
 };
 
 export const contact = (req, res) => { 
-    res.send("Contacto");
+    res.render('../views/contact.ejs', {
+        title: 'Contacto'
+    });
 };
 
 export const about = (req, res) => {
-    res.send("Sobre nosotros");
+    res.redirect('/');
 };

@@ -1,21 +1,25 @@
 /* Configuro capa de controladores para authRoutes.js */
 
 export const login = (req, res) => {
-    res.send("Login");
+    res.render('../views/auth/login.ejs', {
+        title: 'Ingresar'
+    });
 };
 
 export const doLogin = (req, res) => { 
-    res.send("Login post");
+    res.redirect('/');
 };
 
 export const register = (req, res) => {
-    res.send("Register");
+    res.render('../views/auth/register.ejs', {
+        title: 'Registrarse'
+    });
 };
 
 export const doRegister = (req, res) => {
-    res.send("Register post");
+    res.redirect('/');
 };
 
 export const logout = (req, res) => {
-    res.send("Logout");
+    res.redirect('/');
 };

@@ -1,17 +1,33 @@
-/* Configuro capa de controladores para shopRoutes.js */
+import { findAll, findOne } from "../models/productModel.js";
 
-export const shop = (req, res) => {
-    res.send("Shop");
+/* Configuro capa de controladores para shopRoutes.js */
+export const shop = async (req, res) => {
+    const items = await findAll();
+
+    res.render('../views/shop/shop.ejs', {
+        title: 'Shop',
+        items
+    });
 };
 
-export const item = (req, res) => { 
-    res.send("Item");
+export const item = async (req, res) => {
+    const { id } = req.params; 
+    const items = await findAll();
+    const [item] = await findOne({product_id: id})
+
+    res.render('../views/shop/item.ejs', {
+        title: 'Item',
+        items,
+        item
+    });
 };
 
 export const addItem = (req, res) => {
-    res.send("Agregar item al carrito");
+    res.send('Agregar item al Carrito');
 };
 
 export const cart = (req, res) => {
-    res.send("Carrito");
+    res.render('../views/shop/cart.ejs', {
+        title: 'Carrito'
+    });
 };

@@ -1,25 +1,38 @@
+import { findAll, findOne, createOne, editOne, deleteOne } from '../models/productModel.js';
+
 /* Configuro capa de controladores para adminRoutes.js */
 
-export const admin = (req, res) => {
-    res.send("Admin");
+export const admin = async (req, res) => {
+    const items = await findAll();
+
+    res.render('../views/admin/admin.ejs', {
+        title: 'Admin',
+        items
+    });
 };
 
 export const createView = (req, res) => { 
-    res.send("Create");
+    res.render('../views/admin/create-item.ejs');
 };
 
 export const createItem = (req, res) => {
-    res.send("Create post");
+    res.redirect('/admin');
 };
 
-export const editView = (req, res) => {
-    res.send("Edit");
+export const editView = async (req, res) => {
+    const {id} = req.params;
+    const [product] = await findOne({product_id: id});
+
+    res.render('../views/admin/edit-item.ejs', {
+        title: 'Edit Item',
+        product
+    });
 };
 
 export const editItem = (req, res) => {
-    res.send("Edit post");
+    res.redirect('/admin');
 };
 
 export const deleteItem = (req, res) => {
-    res.send("Delete");
+    res.redirect('/admin');
 };
