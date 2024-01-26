@@ -12,7 +12,9 @@ export const admin = async (req, res) => {
 };
 
 export const createView = (req, res) => { 
-    res.render('../views/admin/create-item.ejs');
+    res.render('../views/admin/create-item.ejs', {
+        title: 'Crear Item'
+    });
 };
 
 export const createItem = (req, res) => {
@@ -24,7 +26,7 @@ export const editView = async (req, res) => {
     const [product] = await findOne({product_id: id});
 
     res.render('../views/admin/edit-item.ejs', {
-        title: 'Edit Item',
+        title: 'Editar Item',
         product
     });
 };

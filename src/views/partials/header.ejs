@@ -8,7 +8,7 @@
     <link rel="icon" href="/img/branding/isotype.svg" type="image/x-icon" />
   </head>
 
-  <body>
+  <body class="body__short-content">
     <header>
       <nav class="navbar container">
         <picture class="navbar__img">
@@ -21,7 +21,7 @@
           <iconify-icon icon="mingcute:menu-line"></iconify-icon>
         </div>
 
-        <% if (locals.isLogged) { %>
+        <% if (locals.isLoggedAdmin) { %>
 
         <ul class="navbar__menu">
           <li class="navbar__item">
@@ -34,6 +34,39 @@
             <a class="navbar__link" href="/auth/logout">SALIR</a>
           </li>
         </ul>
+
+        <% } else if (locals.isLogged) { %>
+        
+          <ul class="navbar__menu">
+            <li class="navbar__item navbar__desplegable">
+              <a class="navbar__link" href="/shop">
+                SHOP
+                <iconify-icon class="navbar__shop--chevron" icon="ion:chevron-down-outline"></iconify-icon>
+              </a>
+              <ul class="navbar__submenu">
+                <li class="navbar__subitem">
+                  <a class="navbar__sublink" href="/shop?filter=funkos">Funkos</a>
+                </li>
+                <li class="navbar__subitem">
+                  <a class="navbar__sublink" href="/shop?filter=remeras">Remeras</a>
+                </li>
+                <li class="navbar__subitem">
+                  <a class="navbar__sublink" href="/shop?filter=llaveros">Llaveros</a>
+                </li>
+              </ul>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/contact"> CONTACTO </a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/auth/logout">SALIR</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__cart" href="/shop/cart">
+                <img src="/img/icons/cart-icon.svg" alt="Cart icon" />
+              </a>
+            </li>
+          </ul>
 
         <% } else { %>
 

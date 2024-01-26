@@ -4,10 +4,18 @@ import { admin , createView , createItem , editView , editItem , deleteItem } fr
 /* Configuramos Express Router */
 export const adminRouter = express.Router();
 
-adminRouter.get("/", admin);
-adminRouter.get("/create", createView);
-adminRouter.post("/create", createItem);
-adminRouter.get("/edit/:id", editView);
-adminRouter.put("/edit/:id", editItem);
-adminRouter.delete("/delete/:id", deleteItem);
+const isLoggedAdmin = (req, res, next) => {
+    if (req.session.isLoggedAdmin) {
+        return next ();
+    }
+
+    res.send('Necesitas estar registrado para acceder.')
+}
+
+adminRouter.get("/", isLoggedAdmin, admin);
+adminRouter.get("/create", isLoggedAdmin, createView);
+adminRouter.post("/create", isLoggedAdmin, createItem);
+adminRouter.get("/edit/:id", isLoggedAdmin, editView);
+adminRouter.put("/edit/:id", isLoggedAdmin, editItem);
+adminRouter.delete("/delete/:id", isLoggedAdmin, deleteItem);
 

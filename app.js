@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import methodOverride from 'method-override';
+import cookieSession from 'cookie-session';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -25,6 +26,21 @@ app.set("views", path.join(__dirname, "/src/views"));
 
 /* Declaro carpeta de archivos estáticos */
 app.use(express.static(path.join(__dirname, "/public")));
+
+/* Configuro Cookie-Session */
+app.use(cookieSession({
+    secret: 'user_secret_session'
+}));
+
+app.use((req, res, next) => {
+    res.locals.isLogged = req.session.isLogged;
+    return next();
+  });
+
+  app.use((req, res, next) => {
+    res.locals.isLoggedAdmin = req.session.isLoggedAdmin;
+    return next();
+  });
 
 /* Convierte los datos recibidos por POST */
 app.use(express.urlencoded());

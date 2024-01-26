@@ -1,3 +1,5 @@
+import { findUser , createUser } from "../models/userModel.js";
+
 /* Configuro capa de controladores para authRoutes.js */
 
 export const login = (req, res) => {
@@ -6,8 +8,32 @@ export const login = (req, res) => {
     });
 };
 
-export const doLogin = (req, res) => { 
-    res.redirect('/');
+export const doLogin = async (req, res) => {
+    const { email , password } = req.body;
+    const [user] = await findUser({email: email});
+    
+    const validation = () => { 
+        const validateEmail = (user.email == email) ? true : false;
+        const validatePassword  = (user.password == password) ? true : false;
+        const userValidate = validateEmail && validatePassword;
+
+        if (userValidate) {
+            if (email == 'admin.funkoshop@gmail.com') {
+                req.session.isLoggedAdmin = true;
+                return res.redirect('/admin');
+            } else {
+                req.session.isLogged = true;
+                return res.redirect('/');
+            };
+        };
+    }
+    try {
+        return validation();
+    } catch {
+        if ((user == undefined) || (password != user.password)) {
+            return res.redirect('/auth/login');
+        };
+    }
 };
 
 export const register = (req, res) => {
@@ -16,10 +42,21 @@ export const register = (req, res) => {
     });
 };
 
-export const doRegister = (req, res) => {
-    res.redirect('/');
+export const doRegister = async (req, res) => {
+    const user = {
+        name: req.body.nombre,
+        lastname: req.body.apellido,
+        email: req.body.email,
+        password: req.body.password
+     }
+
+     await createUser([Object.values(user)])
+
+     res.redirect('/home');
 };
 
 export const logout = (req, res) => {
-    res.redirect('/');
+    req.session.isLogged = false;
+    req.session.isLoggedAdmin = false;
+    return res.redirect('/');
 };
