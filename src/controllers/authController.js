@@ -27,13 +27,12 @@ export const doLogin = async (req, res) => {
             };
         };
     }
-    try {
-        return validation();
-    } catch {
-        if ((user == undefined) || (password != user.password)) {
-            return res.redirect('/auth/login');
-        };
-    }
+
+    if ((user == undefined) || (password != user.password)) {
+        return res.redirect('/auth/login');
+    };
+
+    return validation();
 };
 
 export const register = (req, res) => {
