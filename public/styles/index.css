@@ -2479,6 +2479,13 @@ add icon del header en caso de llegar a su máximo width. */
   color: var(--color-secundario);
 }
 
+.auth__error {
+  font-size: var(--small-size-16px);
+  font-weight: 500;
+  padding-bottom: var(--spacing-8);
+  color: var(--color-primario);
+}
+
 /* ---------------------------------------- Tablet Screen ---------------------------------------- */
 
 @media screen and (min-width: 768px) {

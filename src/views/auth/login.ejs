@@ -14,7 +14,7 @@
                 name="email"
                 id="email"
                 placeholder="ejemplo@funkoshop.com"
-                required
+                
               />
             </li>
 
@@ -26,10 +26,18 @@
                 name="password"
                 id="password"
                 placeholder="********"
-                required
+                
               />
             </li>
           </ul>
+
+          <% if (typeof errors != 'undefined') { %>
+          <ul>
+            <% errors.forEach(error => { %>
+            <li class="auth__error"><%= error.msg %></li>
+            <% }) %>
+          </ul>
+          <% } %>
 
           <div class="account__enter">
             <input class="account__button" type="submit" value="Ingresar" />

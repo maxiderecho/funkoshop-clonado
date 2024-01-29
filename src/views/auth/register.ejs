@@ -10,26 +10,26 @@
         <form class="account__form" action="/auth/register" method="POST" enctype="application/x-www-form-urlencoded">
           <ul class="account__list">
             <li class="account__content">
-              <label class="account__label" for="nombre">Nombre:</label>
+              <label class="account__label" for="name">Nombre:</label>
               <input
                 class="account__input"
                 type="text"
-                name="nombre"
-                id="nombre"
+                name="name"
+                id="name"
                 placeholder="Funko"
-                required
+                value="<%= body.name %>"
               />
             </li>
 
             <li class="account__content">
-              <label class="account__label" for="apellido">Apellido:</label>
+              <label class="account__label" for="lastname">Apellido:</label>
               <input
                 class="account__input"
                 type="text"
-                name="apellido"
-                id="apellido"
+                name="lastname"
+                id="lastname"
                 placeholder="Shop"
-                required
+                value="<%= body.lastname %>"
               />
             </li>
 
@@ -41,7 +41,7 @@
                 name="email"
                 id="email"
                 placeholder="ejemplo@funkoshop.com"
-                required
+                value="<%= body.email %>"
               />
             </li>
 
@@ -53,7 +53,6 @@
                 name="password"
                 id="password"
                 placeholder="********"
-                required
               />
             </li>
 
@@ -67,10 +66,17 @@
                 name="password__repeat"
                 id="password__repeat"
                 placeholder="********"
-                required
               />
             </li>
           </ul>
+
+          <% if (typeof errors != 'undefined') { %>
+          <ul>
+            <% errors.forEach(error => { %>
+              <li class="auth__error"><%= error.msg %></li>
+            <% }) %>
+          </ul>
+          <% } %>
 
           <div class="account__enter">
             <input class="account__button" type="submit" value="Registrar" />

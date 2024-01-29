@@ -1,14 +1,25 @@
 import { findUser , createUser } from "../models/userModel.js";
+import { validationResult } from "express-validator";
 
 /* Configuro capa de controladores para authRoutes.js */
 
 export const login = (req, res) => {
     res.render('../views/auth/login.ejs', {
-        title: 'Ingresar'
+        title: 'Ingresar',
     });
 };
 
 export const doLogin = async (req, res) => {
+
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+        return res.render('../views/auth/login.ejs', {
+            title: 'Ingresar',
+            errors: errors.array()
+        });
+    }
+
     const { email , password } = req.body;
     const [user] = await findUser({email: email});
     
@@ -29,7 +40,10 @@ export const doLogin = async (req, res) => {
     }
 
     if ((user == undefined) || (password != user.password)) {
-        return res.redirect('/auth/login');
+        return res.render('../views/auth/login.ejs', {
+            title: 'Ingresar',
+            credentials: 'Los datos son incorrectos.'
+        });
     };
 
     return validation();
@@ -37,14 +51,36 @@ export const doLogin = async (req, res) => {
 
 export const register = (req, res) => {
     res.render('../views/auth/register.ejs', {
-        title: 'Registrarse'
+        title: 'Registrarse',
+        body: {
+            name: req.body.name,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            password: req.body.password
+        }
     });
 };
 
 export const doRegister = async (req, res) => {
+
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+        return res.render('../views/auth/register.ejs', {
+            title: 'Registrarse',
+            errors: errors.array(),
+            body: {
+                name: req.body.name,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: req.body.password
+            }
+        });
+    }
+
     const user = {
-        name: req.body.nombre,
-        lastname: req.body.apellido,
+        name: req.body.name,
+        lastname: req.body.lastname,
         email: req.body.email,
         password: req.body.password
      }
