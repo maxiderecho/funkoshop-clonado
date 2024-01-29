@@ -62,7 +62,7 @@ export const registerValidation = [
         .custom((value, {req}) => {
             return value == req.body.password;
         })
-        .withMessage('Las contraseñas no coinciden'),
+        .withMessage('Las contraseñas no coinciden.'),
     body('terminos')
         .notEmpty()
         .withMessage('Acepte los términos y condiciones para avanzar.')    
