@@ -3,11 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Clonación de página web de una tienda de Funkos ficticia llamada Funkoshop.",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node app.js",
-    "dev": "nodemon app.js"
+    "build": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
