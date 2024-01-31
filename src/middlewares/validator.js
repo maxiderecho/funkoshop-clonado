@@ -1,5 +1,6 @@
 import { body } from 'express-validator';
 import { findUser } from '../models/userModel.js';
+import bcrypt from 'bcryptjs';
 
 export const loginValidation = [
     body('email')
@@ -21,7 +22,7 @@ export const loginValidation = [
             const { email } = req.body;
             const [user] = await findUser({email: email})
             if (typeof user != 'undefined') {
-                if (value != user.password) {
+                if (!(await bcrypt.compare(value, user.password))) {
                     throw new Error('Los datos ingresados son incorrectos.');
                 };
             };
@@ -63,6 +64,8 @@ export const registerValidation = [
             return value == req.body.password;
         })
         .withMessage('Las contraseñas no coinciden.'),
+    body('password')
+        .customSanitizer(async (value) => await bcrypt.hash(value, 12)),
     body('terminos')
         .notEmpty()
         .withMessage('Acepte los términos y condiciones para avanzar.')    

@@ -20,33 +20,13 @@ export const doLogin = async (req, res) => {
         });
     }
 
-    const { email , password } = req.body;
-    const [user] = await findUser({email: email});
-    
-    const validation = () => { 
-        const validateEmail = (user.email == email) ? true : false;
-        const validatePassword  = (user.password == password) ? true : false;
-        const userValidate = validateEmail && validatePassword;
-
-        if (userValidate) {
-            if (email == 'admin.funkoshop@gmail.com') {
-                req.session.isLoggedAdmin = true;
-                return res.redirect('/admin');
-            } else {
-                req.session.isLogged = true;
-                return res.redirect('/');
-            };
-        };
+    if (req.body.email == 'admin.funkoshop@gmail.com') {
+        req.session.isLoggedAdmin = true;
+        return res.redirect('/admin');
+    } else {
+        req.session.isLogged = true;
+        return res.redirect('/');
     }
-
-    if ((user == undefined) || (password != user.password)) {
-        return res.render('../views/auth/login.ejs', {
-            title: 'Ingresar',
-            credentials: 'Los datos son incorrectos.'
-        });
-    };
-
-    return validation();
 };
 
 export const register = (req, res) => {

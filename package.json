@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/maxiderecho/funkoshop-clonado#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-session": "^2.1.0",
     "dotenv": "^16.3.2",
     "ejs": "^3.1.9",
