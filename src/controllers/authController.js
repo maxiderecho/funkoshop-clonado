@@ -20,7 +20,7 @@ export const doLogin = async (req, res) => {
         });
     }
 
-    if (req.body.email == 'admin.funkoshop@gmail.com') {
+    if (req.body.email == 'admin@gmail.com') {
         req.session.isLoggedAdmin = true;
         return res.redirect('/admin');
     } else {

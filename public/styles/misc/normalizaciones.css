@@ -1,0 +1,56 @@
+/* ------------------------------ NORMALIZACIONES ------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+    /* La fuente del navegador por defecto mide 16px.
+    Con esta normalización logramos que mida 10px.
+    Esto permite que sea mucho más facil trabajar con medidas relativas */
+    font-family: var(--fuente-base);
+    color: var(--color-fuente-oscuro);
+  }
+  
+  a {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+  }
+  
+  ul,
+  ol {
+    list-style-type: none; /* Elimina el icono o número que agregan las listas */
+  }
+  
+  header,
+  footer {
+    font-family: var(--fuente-alternativa);
+    color: var(--color-fuente-claro);
+  }
+  
+  /* Configuramos que las imagenes y los inputs se adapten al ancho del contenedor. */
+  img {
+    max-width: 100%;
+  }
+  
+  input {
+    max-width: 100%;
+  }
+  
+  /* Configuro max-width del contenido de la web. */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+    
+  /* Agrego .body__short-content para evitar espacios en la pantalla
+  cuando el contenido no llegue a ocupar todo el height. */
+  .body__short-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }

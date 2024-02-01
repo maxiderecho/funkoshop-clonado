@@ -1,119 +1,155 @@
 <%- include('../partials/header.ejs') %>
 
-    <main class="main__padding">
-      <div class="main container">
-        <!-- Aside -->
-        <aside class="main-aside">
-          <div class="aside-search">
-            <h2 class="aside-search__text">BUSCAR</h2>
-            <input type="search" name="buscar" class="aside-search__input" placeholder="ítem o categoria" />
+    <div class="shop__container">
+      <div class="shop__content container">
+        <aside class="filter">
+          <div class="filter__content">
+            <label class="filter__title" for="search">BUSCAR</label>
+            <input
+              class="filter__search"
+              type="text"
+              name="search"
+              id="search"
+              placeholder="ítem o categoría"
+            />
+            <label class="filter__search--icon" for="search">
+              <img
+                src="/img/icons/search_icon.svg"
+                alt="Ícono de búsqueda"
+              />
+            </label>
+
+            <a class="filter__button">
+              Filtros
+              <iconify-icon class="filter__button--icon" icon="ion:chevron-down-outline"></iconify-icon>
+            </a>
           </div>
 
-          <div class="aside-order">
-            <h2 class="aside-order__text">ORDENAR POR</h2>
-            <form action="" id="aside-order__form">
-              <select name="ordenar" class="aside-order__form-select" placeholder="Mayor o menor">
-                <option value=""></option>
-                <option value="">Mayor a menor</option>
-                <option value="">Menor a mayor</option>
-                <option value="">Nuevo</option>
+          <div class="filter__content--desplegable">
+            <div class="filter__content">
+              <label class="filter__title" for="order">ORDENAR POR</label>
+              <select class="filter__order" name="order" id="order">
+                <option value="mayor">Mayor a menor</option>
+                <option value="menor">Menor a mayor</option>
               </select>
-            </form>
-          </div>
+            </div>
 
-          <div class="aside-price">
-            <h2 class="aside-price__text">PRECIO</h2>
-            <form action="" id="form" class="aside-price__form">
-              <label for="min" class="aside-price__label">MIN</label>
-              <input type="number" name="min" id="min" class="aside-price__min-max" />
-              <p class="aside-price__label">-</p>
-              <label for="max" class="aside-price__label">MAX</label>
-              <input type="number" name="max" id="max" class="aside-price__min-max" />
-            </form>
-          </div>
+            <div class="filter__content">
+              <h2 class="filter__title">PRECIO</h2>
+              <div class="filter__content--price">
+                <label class="filter__label" for="min">MIN</label>
+                <input
+                  class="filter__price"
+                  type="number"
+                  name="min"
+                  id="min"
+                  placeholder="0"
+                />
+                <p class="filter__price--divisor">-</p>
+                <label class="filter__label" for="max">MAX</label>
+                <input
+                  class="filter__price"
+                  type="number"
+                  name="max"
+                  id="max"
+                  placeholder="0"
+                />
+              </div>
+            </div>
 
-          <div class="aside-filter">
-            <h2 class="aside-filter__text">FILTRAR</h2>
-            <form action="" id="filter" class="aside-filter__form">
-              <input type="checkbox" name="new" id="new" />
-              <label for="new" class="aside-filter__label">NUEVOS</label><br />
-              <input type="checkbox" name="offers" id="offers" />
-              <label for="offers" class="aside-filter__label">OFERTAS</label><br />
-              <input type="checkbox" name="special" id="special" />
-              <label for="special" class="aside-filter__label">EDICIÓN ESPECIAL</label><br />
-              <input type="checkbox" name="favorites" id="favorites" />
-              <label for="favorites" class="aside-filter__label">FAVORITOS</label>
-            </form>
+            <div class="filter__content">
+              <h2 class="filter__title">FILTRAR</h2>
+              <ul class="filter__list">
+                <li class="filter__checkbox">
+                  <input
+                    class="filter__checkbox--input"
+                    type="checkbox"
+                    name="nuevos"
+                    id="nuevos"
+                  />
+                  <label class="filter__checkbox--label" for="nuevos"
+                    >NUEVOS</label
+                  >
+                </li>
+
+                <li class="filter__checkbox">
+                  <input
+                    class="filter__checkbox--input"
+                    type="checkbox"
+                    name="ofertas"
+                    id="ofertas"
+                  />
+                  <label class="filter__checkbox--label" for="ofertas">
+                    OFERTAS
+                  </label>
+                </li>
+
+                <li class="filter__checkbox">
+                  <input
+                    class="filter__checkbox--input"
+                    type="checkbox"
+                    name="edicion-especial"
+                    id="edicion-especial"
+                  />
+                  <label class="filter__checkbox--label" for="edicion-especial">
+                    EDICIÓN ESPECIAL
+                  </label>
+                </li>
+                <li class="filter__checkbox">
+                  <input
+                    class="filter__checkbox--input"
+                    type="checkbox"
+                    name="favoritos"
+                    id="favoritos"
+                  />
+                  <label class="filter__checkbox--label" for="favoritos">
+                    FAVORITOS
+                  </label>
+                </li>
+              </ul>
+            </div>
           </div>
         </aside>
 
-        <!-- Funko Group Main -->
-        <div class="main-funko">
-          <div class="main-funko-group">
-              <% items.forEach(item => { %>
-              <div class="main-funko-item">
-                <article class="card-item">
-                  <a class="card-item__link" href="/shop/item/<%= item.product_id %>">
-                    <picture class="card-item__img">
-                      <span class="card-item__tag">NUEVO</span>
-                      <img
-                        class="card-item__img--front"
-                        src="<%= item.image_front %>"
-                        alt="<%= item.product_description %>"
-                      />
-                      <img
-                        class="card-item__img--back"
-                        src="<%= item.image_back %>"
-                        alt="<%= item.product_description %> BOX"
-                      />
-                    </picture>
-                    <div class="card-item__content">
-                      <p class="card-item__license"><%= item.licence_name %></p>
-                      <h3 class="card-item__name"><%= item.product_name %></h3>
-                      <p class="card-item__price"><%= item.price %></p>
-                      <p class="card-item__offer"><%= item.dues %> CUOTAS SIN INTERÉS</p>
-                    </div>
-                  </a>
-                </article>
-              </div>
+        <main class="shop">
+          <ul class="shop__list">
+            <% items.forEach(item => { %>
+            <li class="shop__item">
+              <article class="card-item">
+                <a class="card-item__link" href="/shop/item/<%= item.product_id %>">
+                  <picture class="card-item__img">
+                    <span class="card-item__tag">NUEVO</span>
+                    <img
+                      class="card-item__img--front"
+                      src="<%= item.image_front %>"
+                      alt="<%= item.product_description %>"
+                    />
+                    <img
+                      class="card-item__img--back"
+                      src="<%= item.image_back %>"
+                      alt="<%= item.product_description %> BOX"
+                    />
+                  </picture>
+                  <div class="card-item__content">
+                    <p class="card-item__license"><%= item.licence_name %></p>
+                    <h3 class="card-item__name"><%= item.product_name %></h3>
+                    <p class="card-item__price"><%= item.price %></p>
+                    <p class="card-item__offer"><%= item.dues %> CUOTAS SIN INTERÉS</p>
+                  </div>
+                </a>
+              </article>
+            </li>
             <% }) %>
-          </div>
-
-
-          <!-- Chevron and Pages -->
-          <div class="main-funko-chevron">
-            <nav class="main-funko-chevron__nav-bar">
-              <ul class="main-funko-chevron__nav-bar__ul">
-                <li>
-                  <a href="#" class="main-funko-chevron__nav-bar__buttons" id="main-funko-chevron__nav-bar__left-chevron"
-                    ><iconify-icon icon="mdi:chevron-left" class="iconify__chevron"></iconify-icon
-                  ></a>
-                </li>
-                <li>
-                  <a href="#" class="main-funko-chevron__nav-bar__buttons">1</a>
-                </li>
-                <li>
-                  <a href="#" class="main-funko-chevron__nav-bar__buttons">...</a>
-                </li>
-                <li>
-                  <a href="#" class="main-funko-chevron__nav-bar__buttons">7</a>
-                </li>
-                <li>
-                  <a href="#" class="main-funko-chevron__nav-bar__buttons" id="main-funko-chevron__nav-bar__right-chevron"
-                    ><iconify-icon icon="mdi:chevron-right" class="iconify__chevron"></iconify-icon
-                  ></a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+          </ul>
+        </main>
       </div>
-    </main>
+    </div>
 
     <%- include ('../partials/footer.ejs') %>
 
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="/scripts/menu.js"></script>
+    <script src="/scripts/shop.js"></script>
   </body>
 </html>
