@@ -16,8 +16,8 @@
           <form class="item__carrito">
               <input class="item__cantidad" type="text" placeholder="0" id="quantity" />
               <div class="item__button--content">
-                <button class="item__button" id="increment">+</button>
-                <button class="item__button" id="decrement">-</button>
+                <input class="item__button" type="button" id="add" value="+" />
+                <input class="item__button" type="button" id="subtract" value="-" />
               </div>
               <input
                 class="item__add-cart"
@@ -46,7 +46,7 @@
                       <img
                         class="card-item__img--front"
                         src="<%= item.image_front %>"
-                        alt="<%= item.product_description %> BOX"
+                        alt="<%= item.product_description %>"
                       />
                       <img
                         class="card-item__img--back"
@@ -89,7 +89,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="/scripts/menu.js"></script>
-    <!-- <script src="/script/inputs.js"></script> -->
+    <script src="/scripts/item.js"></script>
     <script src="/scripts/slider.js"></script>
   </body>
 </html>
