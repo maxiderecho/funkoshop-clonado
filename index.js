@@ -1,23 +1,24 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import methodOverride from 'method-override';
-import { initSession , userIsLogged , adminIsLogged } from './src/middlewares/session.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 /* A través de fileURLToPath e import.meta.url genero la manera de
 usar __dirname como se hace con CommonJS ya que ES Modules no posee
 esa función */
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /* Permite la utilización del archivo .env */
+import dotenv from 'dotenv';
+
 dotenv.config();
 
 /* Declaro puerto */
 const PORT = process.env.PORT;
 
 /* Inicio la instancia de express */
+import express from 'express';
+
 const app = express();
 
 /* Configuro ejs para vistas dinámicas */
@@ -32,9 +33,13 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 /* Configuro methodOverride para tome peticiones PUT y DELETE */
+import methodOverride from 'method-override';
+
 app.use(methodOverride('_method'));
 
 /* Configuración de las Sessions */
+import { initSession , userIsLogged , adminIsLogged } from './src/middlewares/session.js';
+
 app.use(initSession);
 app.use(userIsLogged);
 app.use(adminIsLogged);

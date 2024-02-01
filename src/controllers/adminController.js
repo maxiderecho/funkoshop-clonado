@@ -17,7 +17,24 @@ export const createView = (req, res) => {
     });
 };
 
-export const createItem = (req, res) => {
+export const createItem = async (req, res) => {
+
+    const product_DB = {
+        product_name: req.body.nombre,
+        product_description: req.body.descripcion,
+        price: Number(req.body.precio),
+        stock: Number(req.body.stock),
+        discount: Number(req.body.descuento),
+        sku: req.body.sku,
+        dues: req.body.cuotas,
+        image_front: '/img/products/' + req.files.imgFront[0].filename,
+        image_back: '/img/products/' + req.files.imgBack[0].filename,
+        category_id: Number(req.body.categoria),
+        licence_id: Number(req.body.licencia)
+    };
+  
+    await createOne([Object.values(product_DB)]);
+  
     res.redirect('/admin');
 };
 
@@ -31,10 +48,46 @@ export const editView = async (req, res) => {
     });
 };
 
-export const editItem = (req, res) => {
+export const editItem = async (req, res) => {
+
+    const { id } = req.params;
+    const haveImages = (Object.keys(req.files).length) !== 0;
+
+    const product_DB = haveImages
+    ? {
+        product_name: req.body.nombre,
+        product_description: req.body.descripcion,
+        price: Number(req.body.precio),
+        stock: Number(req.body.stock),
+        discount: Number(req.body.descuento),
+        sku: req.body.sku,
+        dues: req.body.cuotas,
+        image_front: '/img/products/' + req.files.imgFront[0].filename,
+        image_back: '/img/products/' + req.files.imgBack[0].filename,
+        category_id: Number(req.body.categoria),
+        licence_id: Number(req.body.licencia)
+    }
+    : {
+        product_name: req.body.nombre,
+        product_description: req.body.descripcion,
+        price: Number(req.body.precio),
+        stock: Number(req.body.stock),
+        discount: Number(req.body.descuento),
+        sku: req.body.sku,
+        dues: req.body.cuotas,
+        category_id: Number(req.body.categoria),
+        licence_id: Number(req.body.licencia)
+    };
+
+    await editOne(product_DB, {product_id: id});
+
     res.redirect('/admin');
 };
 
-export const deleteItem = (req, res) => {
+export const deleteItem = async (req, res) => {
+    const { id } = req.params;
+
+    await deleteOne({product_id: id});
+
     res.redirect('/admin');
 };

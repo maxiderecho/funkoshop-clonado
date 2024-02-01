@@ -269,6 +269,10 @@
         /* display: grid; */
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .shop__item {
+        min-width: 33%;
+    }
 }
   
 /* ---------- Desktop Screen ---------- */
@@ -379,6 +383,6 @@
     }
 
     .shop__item {
-        min-width: 30%;
+        min-width: 33%;
     }
 }

@@ -1,6 +1,8 @@
 import express from 'express';
 import { admin , createView , createItem , editView , editItem , deleteItem } from '../controllers/adminController.js';
 
+import { upload } from '../middlewares/uploadFiles.js';
+
 /* Configuramos Express Router */
 export const adminRouter = express.Router();
 
@@ -10,12 +12,12 @@ const isLoggedAdmin = (req, res, next) => {
     }
 
     res.send('Necesitas estar registrado para acceder.')
-}
+};
 
 adminRouter.get("/", isLoggedAdmin, admin);
 adminRouter.get("/create", isLoggedAdmin, createView);
-adminRouter.post("/create", isLoggedAdmin, createItem);
+adminRouter.post("/create", isLoggedAdmin, upload.fields([{ name: 'imgFront', maxCount: 1 }, { name: 'imgBack', maxCount: 1 }]), createItem);
 adminRouter.get("/edit/:id", isLoggedAdmin, editView);
-adminRouter.put("/edit/:id", isLoggedAdmin, editItem);
+adminRouter.put("/edit/:id", isLoggedAdmin, upload.fields([{ name: 'imgFront', maxCount: 1 }, { name: 'imgBack', maxCount: 1 }]), editItem);
 adminRouter.delete("/delete/:id", isLoggedAdmin, deleteItem);
 
