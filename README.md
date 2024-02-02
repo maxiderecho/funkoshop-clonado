@@ -16,7 +16,7 @@ Link: https://funkoshop-clonado.vercel.app/
 
 - Sistema Login/Register: Se permite el registro e ingreso de usuarios nuevos. Estos usuarios se guardan en la base de datos con las contraseñas encriptadas. Los usuarios nuevos no tienen acceso a las vistas protegidas (Admin, Crear Item y Editar Item).
 
-- Acceso a vistas protegidas con el usuario admin: Con el usuario "**admin@gmail.com**" y su contraseña "**admin123**" Se permite el acceso a las vistas de Admin, Crear Item y Editar Item. Dentro de estas vistas se podra manipular el almacenamiento de datos de la web que luego se verá reflejada en la tienda y en el detalle de cada item. *** Lamentablemente Vercel no permite la carga de archivos, por lo tanto los items creados o editados no tendrán problema siempre y cuando no se agreguen las imagenes correspondientes al frente y al dorso de cada item. ***
+- Acceso a vistas protegidas con el usuario admin: Con el usuario "**admin@gmail.com**" y su contraseña "**admin123**" se permite el acceso a las vistas de Admin, Crear Item y Editar Item. Dentro de estas vistas se podra manipular el almacenamiento de datos de la web que luego se verá reflejada en la tienda y en el detalle de cada item. ***Lamentablemente Vercel no permite la carga de archivos, por lo tanto los items creados o editados no tendrán problema siempre y cuando no se agreguen las imagenes correspondientes al frente y al dorso de cada item.***
 
 - Actualización en tiempo real: Debido a las vistas dinámicas los items dentro de la tienda, de la página individual de cada item y del slider son cargados de forma dinámica a través de la conexión con la base de datos.
 
