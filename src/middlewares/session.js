@@ -1,16 +1,11 @@
-import session from "express-session";
+import cookieSession from "cookie-session";
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const initSession = (session({
+export const initSession = (cookieSession({
     secret: process.env.SECRET_SESSION,
-    resave: false,
-    saveUninitialized: false,
-    rolling: true,
-    cookie: { 
-        maxAge: 15 * 60 * 1000
-    }
+    maxAge: 15 * 60 * 1000
 }));
 
 export const userIsLogged = ((req, res, next) => {

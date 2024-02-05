@@ -37,11 +37,6 @@ import methodOverride from 'method-override';
 
 app.use(methodOverride('_method'));
 
-/* Configuro Cors para el intercambio de datos entre distintos servidores */
-import cors from 'cors';
-
-app.use(cors());
-
 /* Configuración de las Sessions */
 import { initSession , userIsLogged , adminIsLogged, cartItems } from './src/middlewares/session.js';
 
