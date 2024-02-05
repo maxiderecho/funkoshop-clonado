@@ -1,6 +1,5 @@
 import express from 'express';
 import { admin , createView , createItem , editView , editItem , deleteItem } from '../controllers/adminController.js';
-
 import { upload } from '../middlewares/uploadFiles.js';
 
 /* Configuramos Express Router */
@@ -11,7 +10,9 @@ const isLoggedAdmin = (req, res, next) => {
         return next ();
     }
 
-    res.send('Necesitas estar registrado para acceder.')
+    res.render('./errorAdmin.ejs', {
+        title: 'Credenciales inválidas'
+    })
 };
 
 adminRouter.get("/", isLoggedAdmin, admin);

@@ -20,7 +20,7 @@ Link: https://funkoshop-clonado.vercel.app/
 
 - Actualización en tiempo real: Debido a las vistas dinámicas los items dentro de la tienda, de la página individual de cada item y del slider son cargados de forma dinámica a través de la conexión con la base de datos.
 
-- Manejo de errores: Implenté manejo de errores para el error 404 y las validaciones en el formulario de Login y Register.
+- Manejo de errores: Implenté manejo de errores para: **Error 404**, **item no existente**, **credenciales inválidas en el acceso a las vistas protegidas**, **validaciones en el formulario de Login y Register**.
 
 ## Arquitectura
 
