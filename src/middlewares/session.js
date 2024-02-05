@@ -1,7 +1,16 @@
-import cookieSession from "cookie-session";
+import session from "express-session";
+import dotenv from 'dotenv';
 
-export const initSession = ((cookieSession({
-    secret: 'user_secret_session'
+dotenv.config();
+
+export const initSession = ((session({
+    secret: process.env.SECRET_SESSION,
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    cookie: { 
+        maxAge: 15 * 60 * 1000
+    }
 })));
 
 export const userIsLogged = ((req, res, next) => {
@@ -13,3 +22,8 @@ export const adminIsLogged = ((req, res, next) => {
     res.locals.isLoggedAdmin = req.session.isLoggedAdmin;
     return next();
 });
+
+export const cartItems = ((req, res, next) => {
+    res.locals.cartItems = req.session.cartItems;
+    return next();
+})

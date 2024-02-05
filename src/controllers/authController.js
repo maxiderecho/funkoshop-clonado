@@ -1,4 +1,4 @@
-import { findUser , createUser } from "../models/userModel.js";
+import { createUser } from "../models/userModel.js";
 import { validationResult } from "express-validator";
 
 /* Configuro capa de controladores para authRoutes.js */

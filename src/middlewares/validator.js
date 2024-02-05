@@ -71,4 +71,12 @@ export const registerValidation = [
         .withMessage('Acepte los términos y condiciones para avanzar.')    
 ];
 
+export const adminLoggedValidation = (req, res, next) => {
+    if (req.session.isLoggedAdmin) {
+        return next ();
+    }
 
+    res.render('./errorAdmin.ejs', {
+        title: 'Credenciales inválidas'
+    })
+};

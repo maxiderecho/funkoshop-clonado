@@ -20,7 +20,7 @@ Link: https://funkoshop-clonado.vercel.app/
 
 - Actualización en tiempo real: Debido a las vistas dinámicas los items dentro de la tienda, de la página individual de cada item y del slider son cargados de forma dinámica a través de la conexión con la base de datos.
 
-- Manejo de errores: Implenté manejo de errores para: **Error 404**, **item no existente**, **credenciales inválidas en el acceso a las vistas protegidas**, **validaciones en el formulario de Login y Register**.
+- Manejo de errores: Implementé manejo de errores para: **Error 404** - **Item no existente** - **Credenciales inválidas en el acceso a las vistas protegidas** - **Validaciones en el formulario de Login y Register**.
 
 ## Arquitectura
 
@@ -33,7 +33,7 @@ También aplico el sistema CRUD (Create - Read - Update - Delete) sobre la infor
 Hasta el momento las dependencias usadas dentro de Node.js para el correcto funcionamiento de la web son:
 
 - bcriptjs
-- cookie-session
+- express-session
 - dotenv
 - ejs
 - express
@@ -42,7 +42,7 @@ Hasta el momento las dependencias usadas dentro de Node.js para el correcto func
 - multer
 - mysql2
 
-Utilizo nodemon como dependencia de desarrollador.
+Utilizo 'nodemon' como dependencia de desarrollador.
 
 ## :gear: Tecnologías
 

@@ -38,11 +38,12 @@ import methodOverride from 'method-override';
 app.use(methodOverride('_method'));
 
 /* Configuración de las Sessions */
-import { initSession , userIsLogged , adminIsLogged } from './src/middlewares/session.js';
+import { initSession , userIsLogged , adminIsLogged, cartItems } from './src/middlewares/session.js';
 
 app.use(initSession);
 app.use(userIsLogged);
 app.use(adminIsLogged);
+app.use(cartItems);
 
 /* Importo y declaro rutas */
 import { mainRouter } from './src/routes/mainRoutes.js';
@@ -56,12 +57,9 @@ app.use("/admin", adminRouter);
 app.use("/auth", authRouter);
 
 /* Manejo de error 404 */
-app.use((req, res, next) => {
-    res.status(404).render('./error404.ejs', {
-        title: 'Error 404'
-    });
-    next();
-});
+import { error404 } from './src/middlewares/errorHandle.js';
+
+app.use(error404);
 
 /* Inicio servidor */
 app.listen(PORT, () => console.log(`Servidor corriendo en  http://localhost:${PORT}`));
