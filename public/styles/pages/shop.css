@@ -139,7 +139,6 @@
 /* ---------- Tablet Screen ---------- */
 
 @media screen and (min-width: 768px) {
-
     /* .shop__container {
         padding: var(--spacing-14);
     } */
@@ -277,10 +276,9 @@
   
 /* ---------- Desktop Screen ---------- */
   
-  @media screen and (min-width: 1024px) {
-  
+@media screen and (min-width: 1024px) {  
     .shop__container {
-      padding: var(--spacing-48) var(--spacing-14);
+        padding: var(--spacing-48) var(--spacing-14);
     }
   
     .shop__content {

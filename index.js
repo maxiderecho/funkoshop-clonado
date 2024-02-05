@@ -57,7 +57,9 @@ app.use("/auth", authRouter);
 
 /* Manejo de error 404 */
 app.use((req, res, next) => {
-    res.status(404).send('La página solicitada no existe');
+    res.status(404).render('./error404', {
+        title: 'Error 404'
+    });
     next();
 });
 

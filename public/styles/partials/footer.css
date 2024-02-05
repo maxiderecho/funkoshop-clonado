@@ -3,110 +3,110 @@
 /* ---------- Mobile Screen ---------- */
 
 footer {
-    background-color: var(--background-oscuro);
-    padding: var(--spacing-36) var(--spacing-14) var(--spacing-12);
-  }
-  
-  footer .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar__footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-14);
-  }
-  
-  /* Accedo a las clases a traves de la etiqueta footer ya que se comparten con las clases del header. */
-  
-  footer .navbar__link {
-    /* display: inline-block; */
-    font-size: var(--font-size-12px);
-  }
-  
-  footer .navbar__img {
-    width: 8.5rem;
-    margin-left: 0;
-  }
-  
-  .copyright {
-    padding-top: var(--spacing-36);
-    font-size: var(--font-size-12px);
-    text-align: center;
-  }
+  background-color: var(--background-oscuro);
+  padding: var(--spacing-36) var(--spacing-14) var(--spacing-12);
+}
+
+footer .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+}
+
+/* Accedo a las clases a traves de la etiqueta footer ya que se comparten con las clases del header. */
+
+footer .navbar__link {
+  /* display: inline-block; */
+  font-size: var(--font-size-12px);
+}
+
+footer .navbar__img {
+  width: 8.5rem;
+  margin-left: 0;
+}
+
+.copyright {
+  padding-top: var(--spacing-36);
+  font-size: var(--font-size-12px);
+  text-align: center;
+}
   
 /* ---------- Tablet Screen ---------- */
   
-  @media screen and (min-width: 768px) {
-    footer {
-      /* background-color: var(--background-oscuro); */
-      padding-top: var(--spacing-48);
-    }
-  
-    /* footer .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  } */
-  
-    /* .navbar__footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-14);
-  } */
-  
-    footer .navbar__link {
-      /* display: inline-block; */
-      font-size: var(--font-size-18px);
-    }
-  
-    footer .navbar__img {
-      width: 12rem;
-      /* margin-left: 0; */
-    }
-  
-    .copyright {
-      padding-top: var(--spacing-48);
-      font-size: var(--font-size-16px);
-      /* text-align: center; */
-    }
+@media screen and (min-width: 768px) {
+  footer {
+    /* background-color: var(--background-oscuro); */
+    padding-top: var(--spacing-48);
   }
+
+  /* footer .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  } */
+
+  /* .navbar__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+  } */
+
+  footer .navbar__link {
+    /* display: inline-block; */
+    font-size: var(--font-size-18px);
+  }
+
+  footer .navbar__img {
+    width: 12rem;
+    /* margin-left: 0; */
+  }
+
+  .copyright {
+    padding-top: var(--spacing-48);
+    font-size: var(--font-size-16px);
+    /* text-align: center; */
+  }
+}
   
 /* ---------- Desktop Screen ---------- */
   
-  @media screen and (min-width: 1024px) {
-    footer {
-      /* background-color: var(--background-oscuro); */
-      padding-top: var(--spacing-68);
-    }
-  
-    /* footer .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  } */
-  
-    /* .navbar__footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-14);
-  } */
-  
-    footer .navbar__link {
-      /* display: inline-block; */
-      font-size: var(--font-size-20px);
-    }
-  
-    footer .navbar__img {
-      width: 14.3rem;
-      /* margin-left: 0; */
-    }
-  
-    .copyright {
-      padding-top: var(--spacing-68);
-      font-size: var(--font-size-20px);
-      /* text-align: center; */
-    }
+@media screen and (min-width: 1024px) {
+  footer {
+    /* background-color: var(--background-oscuro); */
+    padding-top: var(--spacing-68);
   }
+
+  /* footer .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  } */
+
+  /* .navbar__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+  } */
+
+  footer .navbar__link {
+    /* display: inline-block; */
+    font-size: var(--font-size-20px);
+  }
+
+  footer .navbar__img {
+    width: 14.3rem;
+    /* margin-left: 0; */
+  }
+
+  .copyright {
+    padding-top: var(--spacing-68);
+    font-size: var(--font-size-20px);
+    /* text-align: center; */
+  }
+}

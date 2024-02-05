@@ -21,9 +21,10 @@
 /* -------------------- PAGES -------------------- */
 
 @import url(./pages/home.css);
-@import url(./pages/cart.css);
+@import url(./pages/shop.css);
 @import url(./pages/item.css);
+@import url(./pages/cart.css);
 @import url(./pages/auth.css);
 @import url(./pages/admin.css);
 @import url(./pages/create-edit.css);
-@import url(./pages/shop.css);
+@import url(./pages/error404.css);
