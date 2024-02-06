@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const initSession = (cookieSession({
+    name: 'session',
     secret: process.env.SECRET_SESSION,
     maxAge: 15 * 60 * 1000
 }));

@@ -22,12 +22,46 @@ export const item = async (req, res) => {
     });
 };
 
-export const addItem = (req, res) => {
-    res.send('Agregar item al Carrito');
+export const addItem = async (req, res) => {
+    const { id } = req.params;
+    const [item] = await findOne({product_id: id});
+    const { quantity } = req.body;
+
+    if (!req.session.cartItems) {
+        req.session.cartItems = [];
+    };
+
+    const itemExists = req.session.cartItems.find(element => element.id === item.product_id);
+
+    if (itemExists) {
+        itemExists.quantity = Number(itemExists.quantity) + Number(quantity);
+    } else {
+        req.session.cartItems.push({ id: item.product_id, quantity: Number(quantity) });
+    };
+
+    res.redirect('/shop');
 };
 
-export const cart = (req, res) => {
+export const cart = async (req, res) => {
+
+    const items = await findAll();
+
     res.render('../views/shop/cart.ejs', {
-        title: 'Carrito'
+        title: 'Carrito',
+        items: items
     });
+};
+
+export const deleteItemCart = (req, res) => {
+
+    const { id } = req.params;
+
+    const product = req.session.cartItems.findIndex(element => element.id == id);
+
+    if (product != -1) {
+        req.session.cartItems.splice(product, 1)
+    };
+
+    res.redirect('/shop/cart');
+
 };

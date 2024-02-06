@@ -66,6 +66,25 @@ header .navbar {
 .navbar__sublink {
   display: none;
 }
+
+.navbar__cart {
+  position: relative;
+}
+
+.navbar__cart--quantity {
+  background-color: var(--color-primario);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -3rem;
+  right: -1.2rem;
+  min-width: 2.3rem;
+  min-height: 2.3rem;
+  font-size: var(--font-size-14px);
+  padding: var(--spacing-4);
+}
   
 /* ---------- Tablet Screen ---------- */
   

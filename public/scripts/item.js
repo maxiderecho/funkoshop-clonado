@@ -6,7 +6,7 @@ itemQuantity.addEventListener('input', function () {
     this.value = this.value.replace(/^0+/, '');
     this.value = this.value.replace(/[^0-9]/g, '');
     if (this.value === '') {
-        this.value = 0;
+        this.value = 1;
     };
 });
 
@@ -15,7 +15,7 @@ itemAdd.addEventListener('click', () => {
 });
 
 itemSubtract.addEventListener('click', () => {
-    if (Number(itemQuantity.value) >= 1) {
+    if (Number(itemQuantity.value) >= 2) {
         itemQuantity.value = Number(itemQuantity.value) - 1;
     }
 });

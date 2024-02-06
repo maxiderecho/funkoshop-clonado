@@ -62,9 +62,17 @@
               <a class="navbar__link" href="/auth/logout">SALIR</a>
             </li>
             <li class="navbar__item">
+              <% if (locals.cartItems && (locals.cartItems.length > 0)) { 
+                itemsQuantity = locals.cartItems.length %>
+              <a class="navbar__cart" href="/shop/cart">
+                <img src="/img/icons/cart-icon.svg" alt="Cart icon" />
+                <p class="navbar__cart--quantity"><%= Number(itemsQuantity) %></p>
+              </a>
+              <% } else { %>
               <a class="navbar__cart" href="/shop/cart">
                 <img src="/img/icons/cart-icon.svg" alt="Cart icon" />
               </a>
+              <% } %>
             </li>
           </ul>
 
@@ -95,9 +103,17 @@
             <a class="navbar__link" href="/auth/login">LOGIN</a>
           </li>
           <li class="navbar__item">
+            <% if (locals.cartItems && (locals.cartItems.length > 0)) { 
+              itemsQuantity = locals.cartItems.length %>
+            <a class="navbar__cart" href="/shop/cart">
+              <img src="/img/icons/cart-icon.svg" alt="Cart icon" />
+              <p class="navbar__cart--quantity"><%= Number(itemsQuantity) %></p>
+            </a>
+            <% } else { %>
             <a class="navbar__cart" href="/shop/cart">
               <img src="/img/icons/cart-icon.svg" alt="Cart icon" />
             </a>
+            <% } %>
           </li>
         </ul>
 

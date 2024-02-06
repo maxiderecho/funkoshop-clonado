@@ -45,6 +45,12 @@ app.use(userIsLogged);
 app.use(adminIsLogged);
 app.use(cartItems);
 
+/* Permite actualizar el valor de expiraciónde la sesión */
+app.use(function (req, res, next) {
+    req.session.nowInMinutes = Math.floor(Date.now() / 60e3)
+    return next()
+})
+
 /* Importo y declaro rutas */
 import { mainRouter } from './src/routes/mainRoutes.js';
 import { shopRouter } from './src/routes/shopRoutes.js';

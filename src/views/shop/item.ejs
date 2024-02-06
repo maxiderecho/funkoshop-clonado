@@ -14,15 +14,15 @@
             <p class="item__description"><%= item.product_description %></p>
             <p class="item__price">$ <%= item.price %></p>
 
-            <form class="item__carrito">
-                <input class="item__cantidad" type="text" placeholder="0" id="quantity" />
+            <form class="item__carrito" action="/shop/item/<%= item.product_id %>" method="POST" enctype="application/json">
+                <input class="item__cantidad" name="quantity" type="text" placeholder="0" id="quantity" value="1" />
                 <div class="item__button--content">
                   <input class="item__button" type="button" id="add" value="+" />
                   <input class="item__button" type="button" id="subtract" value="-" />
                 </div>
                 <input
                   class="item__add-cart"
-                  type="button"
+                  type="submit"
                   value="Agregar al Carrito"
                 />
             </form>
