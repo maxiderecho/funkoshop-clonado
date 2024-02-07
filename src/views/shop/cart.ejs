@@ -65,6 +65,7 @@
           <li class="carrito__item--empty">
               <article class="cart-item__empty">
                 <p> Su carrito se encuentra vacío</p>
+                <a class="cart-item__empty--link" href="/shop">Visita nuestra tienda</a>
               </article>
           </li>
         <% }; %>
@@ -94,8 +95,10 @@
             <p class="resumen__value">$ <span class="resumen_total"></span><%= totalPrice + shipping %></p>
           </div>
         </article>
-
-        <input class="resumen__pagar" type="button" value="IR A PAGAR" />
+        
+        <form action="/shop/cart" method="POST">
+          <input class="resumen__pagar" type="submit" value="IR A PAGAR" />
+        </form>
       </section>
     </main>
 

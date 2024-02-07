@@ -135,8 +135,10 @@ que el resto se expanda de manera responsive. */
 .cart-item__empty {
   background-color: var(--background-claro);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: var(--spacing-10);
   position: relative;
   border-radius: 1rem;
   box-shadow: 0px 0px 10px 0px #00000040;
@@ -145,6 +147,11 @@ que el resto se expanda de manera responsive. */
   color: var(--background-oscuro);
   text-transform: uppercase;
   padding: var(--spacing-36) var(--spacing-4);
+}
+
+.cart-item__empty--link {
+  color: var(--color-primario);
+  border-bottom: 1px solid var(--color-primario);
 }
 
 /* ----- RESUMEN ----- */

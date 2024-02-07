@@ -19,3 +19,5 @@ itemSubtract.addEventListener('click', () => {
         itemQuantity.value = Number(itemQuantity.value) - 1;
     }
 });
+
+itemQuantity.readOnly = true;

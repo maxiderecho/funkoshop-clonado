@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>
+
+    <main class="item__page">
+      <section class="item container">
+        <picture class="error__img">
+          <img class="card-item__img--front" src="/img/groot-purchase.png" alt="Groot purchase." />
+        </picture>
+
+        <article class="item__content">
+          <p class="item__license">¡Es tuyo!</p>
+          <h1 class="item__title">¡Felicitaciones! Compra realizada con éxito.</h1>
+          <p class="item__price">Por haber visitado y utilizado mi página la compra ¡se la regalo!</p>
+          <p class="item__description">Los productos le llegaran algún día...</p>
+          <div class="item__carrito">
+              <a class="item__add-cart" href="/shop">Ir a la tienda</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <%- include ('../partials/footer.ejs') %>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="/scripts/menu.js"></script>
+  </body>
+</html>

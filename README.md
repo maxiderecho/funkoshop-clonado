@@ -16,7 +16,7 @@ Link: https://funkoshop-clonado.vercel.app/
 
 - Sistema Login/Register: Se permite el registro e ingreso de usuarios nuevos. Estos usuarios se guardan en la base de datos con las contraseñas encriptadas. Los usuarios nuevos no tienen acceso a las vistas protegidas (Admin, Crear Item y Editar Item).
 
-- Agregar items al carrito de compras: Desde la página individual de cada items, con el botón **"Agregar al carrito"**, el item es enviado al carrito de compras, donde se podrá manipular su cantidad, ver el precio total de la compra y eliminar el item de la lista. Además se muestra un contador en el header de los items agregados.
+- Carrito de compras: Desde la página individual de cada producto, con el botón **"Agregar al carrito"**, el item es enviado al carrito de compras, donde se podrá manipular su cantidad, ver el precio total de la compra, eliminar el item de la lista y finalizar la compra. Además se muestra un contador en el header de los items agregados.
 
 - Acceso a vistas protegidas con el usuario admin: Con el usuario "**admin@gmail.com**" y su contraseña "**admin123**" se permite el acceso a las vistas de Admin, Crear Item y Editar Item. Dentro de estas vistas se podra manipular el almacenamiento de datos de la web que luego se verá reflejada en la tienda y en el detalle de cada item. ***Lamentablemente Vercel no permite la carga de archivos, por lo tanto los items creados o editados no tendrán problema siempre y cuando no se agreguen las imagenes correspondientes al frente y al dorso de cada item.***
 

@@ -65,3 +65,13 @@ export const deleteItemCart = (req, res) => {
     res.redirect('/shop/cart');
 
 };
+
+export const purchaseCart = (req, res) => {
+
+    req.session.cartItems = [];
+    res.locals.cartItems = req.session.cartItems;
+
+    res.render('./shop/purchase.ejs', {
+        title: 'Comprar'
+    });
+};

@@ -74,9 +74,25 @@ export const registerValidation = [
 export const adminLoggedValidation = (req, res, next) => {
     if (req.session.isLoggedAdmin) {
         return next ();
-    }
+    };
 
     res.render('./errorAdmin.ejs', {
         title: 'Credenciales inválidas'
-    })
+    });
 };
+
+export const userLoggedValidation = (req, res, next) => {
+    if ((req.session.isLoggedAdmin) || (req.session.isLogged)) {
+        return next ();
+    };
+
+    res.redirect('/auth/login');
+};
+
+export const cartEmpty = (req, res, next) => {
+    if ((res.locals.cartItems) && (res.locals.cartItems.length > 0)) {
+        return next();
+    };
+
+    res.redirect('/shop/cart');
+}
