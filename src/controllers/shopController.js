@@ -2,11 +2,28 @@ import { findAll, findOne } from "../models/productModel.js";
 
 /* Configuro capa de controladores para shopRoutes.js */
 export const shop = async (req, res) => {
+
+    const query = req.query;
     const items = await findAll();
+    let filteredItems = '';
+
+    if (query.search) {
+        filteredItems = items.filter(item => {
+            return item.product_name.replace(/ /g, "").toLowerCase().includes(query.search.toLowerCase()) 
+            || item.licence_name.replace(/ /g, "").toLowerCase().includes(query.search.toLowerCase())
+        });
+    };
+
+    if (query.order) {
+        filteredItems = items.filter(item => {
+            return item.category_name.toLowerCase().includes(query.order.toLowerCase())
+        });
+    };
 
     res.render('../views/shop/shop.ejs', {
         title: 'Shop',
-        items
+        items,
+        filteredItems
     });
 };
 

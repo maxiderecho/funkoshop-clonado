@@ -29,7 +29,7 @@
     display: flex;
     gap: var(--spacing-2);
     align-items: center;
-    font-size: var(--font-size-16px);
+    font-size: var(--font-size-14px);
     font-weight: 500;
     text-transform: uppercase;
 }
@@ -48,7 +48,7 @@
   
 .filter__content--desplegable .filter__title {
     display: block;
-    font-size: var(--font-size-16px);
+    font-size: var(--font-size-14px);
     font-weight: 500;
 }
   
@@ -56,7 +56,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--spacing-8);
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-12);
 }
   
 .filter__content--desplegable .filter__content {
@@ -74,25 +75,24 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-8);
 }
   
 .filter__search {
     width: 100%;
     font-size: var(--font-size-16px);
     font-weight: 500;
-    padding: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-6);
     border-radius: 6px;
-    border: 2px solid var(--background-oscuro);
+    border: 1px solid var(--color-fuente-oscuro);
 }
   
 .filter__order {
     width: 17.5rem;
     font-size: var(--font-size-16px);
     font-weight: 500;
-    padding: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-6);
     border-radius: 6px;
-    border: 2px solid var(--background-oscuro);
+    border: 1px solid var(--background-oscuro);
     background-color: #ffffff;
 }
   
@@ -104,16 +104,17 @@
 }
 
 .filter__label {
-    font-size: var(--font-size-14px);
+    font-size: var(--font-size-12px);
 }
   
 .filter__price {
     width: 10rem;
     font-size: var(--font-size-14px);
     font-weight: 500;
-    padding: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-6);
     border-radius: 6px;
-    border: 2px solid var(--background-oscuro);
+    border: 1px solid var(--background-oscuro);
+    text-align: center;
 }
   
 .filter__list {
@@ -181,17 +182,18 @@
         font-weight: 500;
     }
       
-    /* .filter__content--desplegable .filter__title {
+    .filter__content--desplegable .filter__title {
         display: block;
-        font-size: var(--font-size-14px);
+        font-size: var(--font-size-18px);
         font-weight: 500;
-    } */
+    }
       
     .filter__content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-8);
+        margin-bottom: var(--spacing-14);
     }
       
     /* .filter__content--desplegable .filter__content {
@@ -204,28 +206,28 @@
     .filter__content--desplegable {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-14);    }
+    }
       
     .filter-show {
         display: block;
     }
       
-    /* .filter__search {
-        width: 100%;
-        font-size: var(--font-size-16px);
-        font-weight: 500;
-        padding: var(--spacing-4);
-        border-radius: 6px;
+    .filter__search {
+        /* width: 100%; */
+        /* font-size: var(--font-size-16px); */
+        /* font-weight: 500; */
+        padding: var(--spacing-4) var(--spacing-6);
+        /* border-radius: 6px; */
         border: 2px solid var(--background-oscuro);
-    } */
+    }
       
     .filter__order {
         width: 100%;
         /* font-size: var(--font-size-16px); */
         /* font-weight: 500; */
-        /* padding: var(--spacing-4); */
+        /* padding: var(--spacing-4) var(--spacing-6); */
         /* border-radius: 6px; */
-        /* border: 2px solid var(--background-oscuro); */
+        border: 2px solid var(--background-oscuro);
         /* background-color: #ffffff; */
     }
       
@@ -237,16 +239,17 @@
     } */
 
     /* .filter__label {
-        font-size: var(--font-size-14px);
+        font-size: var(--font-size-12px);
     } */
       
     .filter__price {
         width: 100%;
         /* font-size: var(--font-size-14px); */
         /* font-weight: 500; */
-        /* padding: var(--spacing-4); */
+        /* padding: var(--spacing-4) var(--spacing-6); */
         /* border-radius: 6px; */
-        /* border: 2px solid var(--background-oscuro); */
+        border: 2px solid var(--background-oscuro);
+        /* text-align: center; */
     }
          
     /* .filter__list {
@@ -317,7 +320,6 @@
     /* .filter__content--desplegable {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-14);
     } */
    
     .filter__search {
@@ -348,14 +350,14 @@
     } */
   
     .filter__label {
-      font-size: var(--font-size-16px);
+      font-size: var(--font-size-14px);
     }
   
     .filter__price {
       /* width: 100%; */
       font-size: var(--font-size-16px);
       /* font-weight: 500; */
-      padding: var(--spacing-4) var(--spacing-8);
+      /* padding: var(--spacing-4) var(--spacing-6); */
       /* border-radius: 6px; */
       /* border: 2px solid var(--background-oscuro); */
     }
