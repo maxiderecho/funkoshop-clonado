@@ -1,52 +1,37 @@
 <%- include('./partials/header.ejs') %>
 
-    <main>
-      <section class="create container">
-        <h1 class="create__title">CONTACTO</h1>
+    <main class="contact__page">
+      <section class="item contact container">
+        <picture class="contact__img">
+          <article class="card-item card-contact">
+            <a class="card-item__link" href="https://www.linkedin.com/in/maxiderecho/" target="_blank" rel="noopener noreferrer">
+              <picture class="card-item__img card-item__img--contact">
+                <img
+                  class="card-item__img--front--contact"
+                  src="/img/maxi.jpg"
+                  alt="Mi item card"
+                />
+              </picture>
+              <div class="card-item__content">
+                <p class="card-item__license">Developer</p>
+                <h3 class="card-item__name">Maxi Derecho</h3>
+                <p class="card-item__price">$91218</p>
+                <p class="card-item__offer">912 CUOTAS SIN INTERÉS</p>
+              </div>
+            </a>
+          </article>
+        </picture>
 
-        <form class="create__form" action="" method="post">
-          <div class="create__content">
-            <label class="create__label" for="nombre">
-              Nombre:
-              <input
-                class="create__input create__name"
-                type="text"
-                name="nombre"
-                id="nombre"
-                placeholder="FunkoShop"
-              />
-            </label>
+        <article class="item__content contact__content">
+          <p class="contact__license">Fullstack web developer</p>
+          <h1 class="contact__title">Maxi Derecho</h1>
+          <a class="contact__link" href="https://github.com/maxiderecho" target="_blank" rel="noopener noreferrer"><img class="link__icon" src="/img/github-mark.svg" alt="Github Icon"> Github</a>
+          <a class="contact__link" href="https://www.linkedin.com/in/maxiderecho/" target="_blank" rel="noopener noreferrer"><img class="link__icon" src="/img/linkedin-icon.png" alt="Linkedin Icon"> Linkedin</a>
+          <p class="contact__description">Lea la documentación del<br>Funkoshop en el repositorio.</p>
+          <div class="contact__carrito">
+              <a class="contact__button" href="https://github.com/maxiderecho/funkoshop-clonado" target="_blank" rel="noopener noreferrer">Ir al repositorio del proyecto</a>
           </div>
-
-          <div class="create__content">
-            <label class="create__label" for="nombre">
-              Mail:
-              <input
-                class="create__input create__name"
-                type="email"
-                name="nombre"
-                id="nombre"
-                placeholder="ejemplo@funkoshop.com"
-              />
-            </label>
-          </div>
-
-          <div class="create__content">
-            <textarea
-              class="create__description"
-              name="descripcion"
-              id="descripcion"
-              cols="50"
-              rows="8"
-              placeholder="Detalle de su consulta."
-            ></textarea>
-          </div>
-
-          <div class="create__content">
-            <input class="create__button" type="button" value="Enviar" />
-            <input class="create__button" type="reset" value="Limpiar" />
-          </div>
-        </form>
+        </article>
       </section>
     </main>
 

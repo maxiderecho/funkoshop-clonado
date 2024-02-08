@@ -9,7 +9,6 @@
 .shop__content {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: var(--spacing-12);
 }
 
 /* ----- FILTER ----- */
@@ -21,7 +20,9 @@
 }
   
 .filter__search--icon {
-    width: 4.75rem;
+    max-width: 4.75rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
 }
   
@@ -147,7 +148,6 @@
     .shop__content {
         /* display: grid; */
         grid-template-columns: 1fr 2.5fr;
-        row-gap: 0;
         column-gap: var(--spacing-10);
     }
     
@@ -287,7 +287,6 @@
     .shop__content {
         /* display: grid; */
         grid-template-columns: 1fr 4fr;
-        /* row-gap: 0; */
         /* column-gap: var(--spacing-10); */
     }
   
