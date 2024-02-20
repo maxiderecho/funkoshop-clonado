@@ -137,6 +137,10 @@
     display: grid;
     grid-template-columns: 1fr;
 }
+
+.shop__item {
+    min-width: 33%;
+}
   
 /* ---------- Tablet Screen ---------- */
 

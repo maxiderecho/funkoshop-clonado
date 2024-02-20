@@ -1,15 +1,15 @@
 <%- include('../partials/header.ejs') %>
 
     <main>
-      <section class="buscador container">
+      <form action="/admin" method="GET" class="buscador container">
         <label class="buscador__icon" for="search">
           <picture>
             <img src="/img/icons/search_icon.svg" alt="Buscador" />
           </picture>
         </label>
 
-        <input class="buscador__search" type="search" name="search" id="search" placeholder="código, nombre o categoría" />
-      </section>
+        <input class="buscador__search" type="text" name="search" id="search" placeholder="código, nombre o categoría" />
+      </form>
 
       <section class="productos container">
         <div class="productos__header">
@@ -33,7 +33,7 @@
             </thead>
 
             <tbody>
-              <% items.forEach(product => { %>
+              <% filteredItems.forEach(product => { %>
                 <tr class="productos__content">
                   <td><%= product.product_id %></td>
                   <td><%= product.sku %></td>
@@ -61,5 +61,6 @@
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="/scripts/menu.js"></script>
+    <script src="/scripts/admin.js"></script>
   </body>
 </html>

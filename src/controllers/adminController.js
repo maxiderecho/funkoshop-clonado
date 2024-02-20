@@ -4,11 +4,23 @@ import { validationResult } from "express-validator";
 /* Configuro capa de controladores para adminRoutes.js */
 
 export const admin = async (req, res) => {
+
+    const query = req.query;
     const items = await findAll();
+
+    let filteredItems = items;
+
+    if (query.search) {
+        filteredItems = filteredItems.filter(item => {
+            return item.product_name.trim().replace(/ /g, "").toLowerCase().includes(query.search.trim().toLowerCase()) 
+            || item.category_name.replace(/ /g, "").toLowerCase().includes(query.search.trim().toLowerCase())
+            || item.sku.replace(/ /g, "").toLowerCase().includes(query.search.trim().toLowerCase())
+        });
+    };
 
     res.render('../views/admin/admin.ejs', {
         title: 'Admin',
-        items
+        filteredItems
     });
 };
 
