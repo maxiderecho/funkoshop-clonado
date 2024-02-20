@@ -5,24 +5,24 @@ export const shop = async (req, res) => {
 
     const query = req.query;
     const items = await findAll();
-    let filteredItems = '';
+
+    let filteredItems = items;
 
     if (query.search) {
-        filteredItems = items.filter(item => {
+        filteredItems = filteredItems.filter(item => {
             return item.product_name.replace(/ /g, "").toLowerCase().includes(query.search.toLowerCase()) 
             || item.licence_name.replace(/ /g, "").toLowerCase().includes(query.search.toLowerCase())
         });
     };
 
-    if (query.order) {
-        filteredItems = items.filter(item => {
+    if ((query.order) && (query.order != 'todos')) {
+        filteredItems = filteredItems.filter(item => {
             return item.category_name.toLowerCase().includes(query.order.toLowerCase())
         });
     };
 
     res.render('../views/shop/shop.ejs', {
         title: 'Shop',
-        items,
         filteredItems
     });
 };

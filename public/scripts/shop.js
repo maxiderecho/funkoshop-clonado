@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const loadURLParams = () => {
     const urlParams = getURLParams();
 
+    if (urlParams.search) {
+      searchInput.value = urlParams.search;
+  };
+
     if (urlParams.order) {
         orderSelect.value = urlParams.order;
     };
@@ -69,13 +73,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const formData = new FormData(form);
     const currentURL = window.location.origin + window.location.pathname;
   
-    if (searchInput.value.trim() !== '') {
-      const newURL = currentURL + `?search=${encodeURIComponent(searchInput.value.trim().replace(/ /g, ""))}`;
-      window.location.href = newURL;
-      return;
-    };
+    // if (searchInput.value.trim() !== '') {
+    //   const newURL = currentURL + `?search=${encodeURIComponent(searchInput.value.trim().replace(/ /g, ""))}`;
+    //   window.location.href = newURL;
+    //   return;
+    // };
   
     const params = new URLSearchParams();
+
+    // Agrego parámetros search
+    const searchValue = searchInput.value.trim().replace(/ /g, "");
+    if (searchValue) {
+      params.append('search', searchValue);
+    };
   
     // Agrego parámetros order
     const orderValue = orderSelect.value;
