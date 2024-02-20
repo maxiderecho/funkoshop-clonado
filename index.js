@@ -47,7 +47,7 @@ app.use(cartItems);
 
 /* Permite actualizar el valor de expiraciónde la sesión */
 app.use(function (req, res, next) {
-    req.session.nowInMinutes = Math.floor(Date.now() / 60e3)
+    req.session.nowInMinutes = Math.floor(Date.now() / 30e3)
     return next()
 })
 
