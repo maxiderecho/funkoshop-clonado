@@ -1,4 +1,5 @@
-// SLIDER ------------------------------------------------------------------------------------------------------------------------
+//  Slider
+
 document.addEventListener("DOMContentLoaded", function () {
   new Glide(".glide", {
     type: "carousel",
