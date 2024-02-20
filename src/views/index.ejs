@@ -11,54 +11,24 @@
     </section>
 
     <main class="home">
+
+      <% licenceList.forEach(licence => { %>
       <section class="colecciones container">
         <article class="colecciones__content">
-          <h3 class="colecciones__title">Star Wars & The Mandalorian</h3>
-          <p class="colecciones__text">
-            Disfruta de una saga que sigue agregando personajes a su colección.
-          </p>
+          <h3 class="colecciones__title"><%= licence.licence_name %></h3>
+          <p class="colecciones__text"><%= licence.licence_description %></p>
           <div class="colecciones__line"></div>
-          <a class="colecciones__link" href="/shop?search=starwars">VER COLECCIÓN</a>
-        </article>
-
-        <picture class="colecciones__img">
-          <img src="/img/star-wars/baby-yoda-1.webp" alt="Baby Yoda" />
-        </picture>
-      </section>
-
-      <section class="colecciones container">
-        <article class="colecciones__content">
-          <h3 class="colecciones__title">POKEMON INDIGO</h3>
-          <p class="colecciones__text">
-            Atrapa todos los que puedas y disfruta de una colección llena de
-            amigos
-          </p>
-          <div class="colecciones__line"></div>
-          <a class="colecciones__link" href="/shop?search=pokemon">VER COLECCIÓN</a>
-        </article>
-
-        <picture class="colecciones__img">
-          <img src="/img/pokemon/vulpix-1.webp" alt="Vulpix" />
-        </picture>
-      </section>
-
-      <section class="colecciones container">
-        <article class="colecciones__content">
-          <h3 class="colecciones__title">HARRY POTTER</h3>
-          <p class="colecciones__text">
-            Revive los recuerdos de una saga llena de magia y encanto
-          </p>
-          <div class="colecciones__line"></div>
-          <a class="colecciones__link" href="/shop?search=harrypotter">VER COLECCIÓN</a>
+          <a class="colecciones__link" href='/shop?search=<%= licence.licence_name.toLowerCase().trim().replace(/ /g, "")%>'>VER COLECCIÓN</a>
         </article>
 
         <picture class="colecciones__img">
           <img
-            src="/img/harry-potter/snape-patronus-1.webp"
-            alt="Snape Patronus"
+            src="<%= licence.licence_image %>"
+            alt="<%= licence.licence_description %>"
           />
         </picture>
       </section>
+      <% }); %>
 
       <section class="slider container glide">
         <h3 class="slider__title">ÚLTIMOS LANZAMIENTOS</h3>

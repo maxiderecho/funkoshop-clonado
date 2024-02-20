@@ -7,7 +7,7 @@
 .banner {
   background-image: url(../../img/funkos-banner\ 1.svg);
   background-size: cover;
-  padding: var(--spacing-48) var(--spacing-14);
+  padding: var(--spacing-36) var(--spacing-14);
 }
   
 .banner__content {
@@ -49,12 +49,12 @@
 
 .colecciones {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
-  padding-bottom: var(--spacing-8);
+  padding-bottom: var(--spacing-36);
 }
 
-.colecciones:nth-child(2) .colecciones__img {
+.colecciones .colecciones__img {
   order: -1;
 }
 
@@ -69,6 +69,7 @@
   font-size: var(--font-size-18px);
   font-weight: 500;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .colecciones__text {
@@ -82,7 +83,7 @@
 
 .colecciones__link {
   display: inline-block;
-  align-self: flex-start;
+  align-self: center;
   background-color: var(--background-oscuro);
   border-radius: 1rem;
   font-size: var(--font-size-14px);
@@ -157,14 +158,18 @@
 
   .colecciones {
     /* display: grid; */
-    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(2, 1fr);
     /* align-items: center; */
     padding-bottom: var(--spacing-14);
   }
 
-  /* .colecciones:nth-child(2) .colecciones__img {
+  .colecciones .colecciones__img {
+    order: 0;
+  }
+
+  .colecciones:nth-child(2) .colecciones__img {
     order: -1;
-  } */
+  }
 
   /* .colecciones__content {
     display: flex;
@@ -177,6 +182,7 @@
     font-size: var(--font-size-30px);
     /* font-weight: 500; */
     /* text-transform: uppercase; */
+    text-align: start;
   }
 
   .colecciones__text {
@@ -195,7 +201,7 @@
 
   .colecciones__link {
     /* display: inline-block; */
-    /* align-self: flex-start; */
+    align-self: flex-start;
     /* background-color: var(--background-oscuro); */
     border-radius: 2rem;
     padding: var(--spacing-16) var(--spacing-36);
@@ -285,6 +291,10 @@
     padding-bottom: var(--spacing-14);
   } */
 
+  /* .colecciones .colecciones__img {
+    order: 0;
+  } */
+
   /* .colecciones:nth-child(2) .colecciones__img {
     order: -1;
   } */
@@ -300,6 +310,7 @@
     font-size: var(--font-size-46px);
     /* font-weight: 500; */
     /* text-transform: uppercase; */
+    /* text-align: start; */
   }
 
   .colecciones__text {
