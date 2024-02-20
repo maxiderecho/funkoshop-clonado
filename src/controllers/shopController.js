@@ -21,6 +21,15 @@ export const shop = async (req, res) => {
         });
     };
 
+    const minPrice = isNaN(parseInt(query.min)) ? 0 : parseInt(query.min);
+    const maxPrice = isNaN(parseInt(query.max)) ? Number.MAX_VALUE : parseInt(query.max);
+
+    if ((query.min) || (query.max)) {
+        filteredItems = filteredItems.filter( item => {
+            return item.price >= minPrice && item.price <= maxPrice;
+        });
+    };
+
     res.render('../views/shop/shop.ejs', {
         title: 'Shop',
         filteredItems

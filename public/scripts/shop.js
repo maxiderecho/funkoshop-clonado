@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search');
   const orderSelect = document.getElementById('order');
   const priceInputs = document.querySelectorAll('.filter__price');
-  const checkboxes = document.querySelectorAll('.filter__checkbox--input');
 
   const getURLParams = () => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -24,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (const [key, value] of searchParams) {
         params[key] = value;
-    }
+    };
 
     return params;
-  }
+  };
 
   // Función para cargar los valores del formulario desde los parámetros del query string
 
@@ -36,36 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (urlParams.search) {
       searchInput.value = urlParams.search;
-    }
+    };
 
     if (urlParams.order) {
         orderSelect.value = urlParams.order;
-    }
+    };
 
     if (urlParams.min) {
         document.getElementById('min').value = urlParams.min;
-    }
+    };
 
     if (urlParams.max) {
         document.getElementById('max').value = urlParams.max;
-    }
-
-    if (urlParams.nuevos === 'on') {
-        document.getElementById('nuevos').checked = true;
-    }
-
-    if (urlParams.ofertas === 'on') {
-        document.getElementById('ofertas').checked = true;
-    }
-
-    if (urlParams.especial === 'on') {
-        document.getElementById('especial').checked = true;
-    }
-
-    if (urlParams.favoritos === 'on') {
-        document.getElementById('favoritos').checked = true;
-    }
-  }
+    };
+  };
 
   loadURLParams();
 
@@ -99,15 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
         params.append('min', minPrice);
       } else if (maxPrice !== '') {
         params.append('max', maxPrice);
-      }
-    }
-  
-    // Agrego parámetros checkbox
-    checkboxes.forEach(checkbox => {
-      if (checkbox.checked) {
-        params.append(checkbox.name, 'on');
-      }
-    });
+      };
+    };
   
     // Nuevo URL con los parámetros
     const queryString = params.toString();
@@ -132,12 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (event.key === 'Enter') {
               submitForm();
           }
-      });
-  });
-
-  checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', function() {
-          submitForm();
       });
   });
 });
