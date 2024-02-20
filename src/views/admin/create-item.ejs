@@ -93,6 +93,14 @@
             </label>
           </div>
 
+          <% if (typeof errors != 'undefined') { %>
+            <ul>
+              <% errors.forEach(error => { %>
+              <li class="auth__error create__error"><%= error.msg %></li>
+              <% }) %>
+            </ul>
+          <% } %>
+
           <div class="create__content">
             <input class="create__button" type="submit" value="Agregar Producto" />
             <input class="create__button" type="reset" value="Limpiar" />

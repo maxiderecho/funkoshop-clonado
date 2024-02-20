@@ -2,6 +2,30 @@ import { body } from 'express-validator';
 import { findUser } from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 
+export const itemValidation = [
+    body('categoria')
+        .notEmpty()
+        .withMessage('Seleccione la categoría del producto'),
+    body('licencia')
+        .notEmpty()
+        .withMessage('Seleccione la licencia del producto'),
+    body('nombre')
+        .notEmpty()
+        .withMessage('Ingrese el nombre del producto'),
+    body('descripcion')
+        .notEmpty()
+        .withMessage('Ingrese la descripción del producto'),
+    body('sku')
+        .notEmpty()
+        .withMessage('Ingrese el SKU del producto'),
+    body('precio')
+        .notEmpty()
+        .withMessage('Ingrese el precio del producto'),
+    body('stock')
+        .notEmpty()
+        .withMessage('Ingrese el stock del producto'),
+];
+
 export const loginValidation = [
     body('email')
         .notEmpty()
@@ -88,6 +112,16 @@ export const userLoggedValidation = (req, res, next) => {
 
     res.redirect('/auth/login');
 };
+
+export const loggedValidation = (req, res, next ) => {
+    if (req.session.isLoggedAdmin) {
+        res.redirect('/admin');
+    } else if (req.session.isLogged) {
+        res.redirect('/shop/cart');
+    }
+
+    return next();
+}
 
 export const cartEmpty = (req, res, next) => {
     if ((res.locals.cartItems) && (res.locals.cartItems.length > 0)) {

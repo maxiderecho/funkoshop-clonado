@@ -1,4 +1,5 @@
 import { findAll, findOne, createOne, editOne, deleteOne } from '../models/productModel.js';
+import { validationResult } from "express-validator";
 
 /* Configuro capa de controladores para adminRoutes.js */
 
@@ -18,6 +19,15 @@ export const createView = (req, res) => {
 };
 
 export const createItem = async (req, res) => {
+
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+        return res.render('../views/admin/create-item.ejs', {
+            title: 'Creat Item',
+            errors: errors.array()
+        });
+    }
 
     const product_DB = {
         product_name: req.body.nombre,
@@ -51,6 +61,18 @@ export const editView = async (req, res) => {
 export const editItem = async (req, res) => {
 
     const { id } = req.params;
+    const [product] = await findOne({product_id: id});
+
+    const errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+        return res.render('../views/admin/edit-item.ejs', {
+            title: 'Editar Item',
+            errors: errors.array(),
+            product
+        });
+    }
+
     const haveImages = (Object.keys(req.files).length) !== 0;
 
     const product_DB = haveImages
