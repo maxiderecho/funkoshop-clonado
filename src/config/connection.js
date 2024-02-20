@@ -1,4 +1,4 @@
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,17 +10,15 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME,
     port: process.env.PORT_DB,
     waitForConnections: true,
-    connectionLimit: 20,
+    connectionLimit: 15,
     queueLimit:0
 });
 
-pool.getConnection((err, conn) => {
-    if (err) {
-        console.log(err);
-    } else { 
-        console.log('Conexión a la base de datos exitosa.');
-        conn.release();
+export const getConnection = async () => {
+    try {
+        const connection = await pool.getConnection();
+        return connection;
+    } catch (err) {
+        throw err;
     };
-});
-
-export const conn = pool.promise();
+};
