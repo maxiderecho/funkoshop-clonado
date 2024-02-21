@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
-    <main>
+    <main class="admin">
       <form action="/admin" method="GET" class="buscador container">
         <label class="buscador__icon" for="search">
           <picture>
@@ -50,7 +50,12 @@
                     </form>
                   </td>
                 </tr>
-              <% }) %>
+                <% }) %>
+                <% if (filteredItems.length === 0) { %>
+                <tr>
+                  <td class="admin__empty" colspan="4">No se han encontrado coincidencias.</td>
+                </tr>
+                <% } %>
             </tbody>
           </table>
         </article>

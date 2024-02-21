@@ -2,14 +2,24 @@
 
 /* ---------- Mobile Screen ---------- */
 
+.admin {
+  padding: var(--spacing-14);
+  margin-bottom: auto;
+}
+
+.admin__empty {
+  font-size: var(--font-size-14px);
+  font-weight: 500;
+  margin-top: var(--spacing-10);
+  text-align: center;
+}
+
 /* ----- BUSCADOR ----- */
 
 .buscador {
   display: flex;
   align-items: center;
   gap: var(--spacing-8);
-  padding: var(--spacing-14);
-  padding-bottom: 0;
 }
 
 .buscador__icon {
@@ -25,7 +35,7 @@
 /* ----- PRODUCTOS ----- */
 
 .productos {
-  padding: var(--spacing-14);
+  margin-top: var(--spacing-14);
 }
 
 .productos__header {
@@ -116,13 +126,24 @@ add icon del header en caso de llegar a su máximo width. */
 /* ---------- Tablet Screen ---------- */
   
 @media screen and (min-width: 768px) {
+  /* .admin {
+    padding: var(--spacing-14);
+    margin-bottom: auto;
+  } */
+  
+  .admin__empty {
+    font-size: var(--font-size-16px);
+    /* font-weight: 500; */
+    /* margin-top: var(--spacing-10); */
+    /* text-align: center; */
+  }
+
   /* ----- BUSCADOR ----- */
 
   .buscador {
     /* display: flex; */
     /* align-items: center; */
     /* gap: var(--spacing-8); */
-    /* padding: var(--spacing-14); */
     padding-bottom: var(--spacing-4);
   }
 
@@ -141,7 +162,7 @@ add icon del header en caso de llegar a su máximo width. */
   /* ----- PRODUCTOS ----- */
 
   /* .productos {
-    padding: var(--spacing-14);
+    margin-top: var(--spacing-14);
   } */
 
   .productos__header {
@@ -231,15 +252,26 @@ add icon del header en caso de llegar a su máximo width. */
 /* ---------- Desktop Screen ---------- */
   
 @media screen and (min-width: 1024px) {
+  /* .admin {
+    padding: var(--spacing-14);
+    margin-bottom: auto;
+  } */
+  
+  .admin__empty {
+    font-size: var(--font-size-22px);
+    /* font-weight: 500; */
+    /* margin-top: var(--spacing-10); */
+    /* text-align: center; */
+  }
+
   /* ----- BUSCADOR ----- */
   
   .buscador {
     /* display: flex; */
     /* align-items: center; */
     gap: var(--spacing-12);
-    /* padding: var(--spacing-14); */
     padding-bottom: var(--spacing-14);
-    padding-top: var(--spacing-24);
+    padding-top: var(--spacing-10);
   }
   
   .buscador__icon {
@@ -257,7 +289,7 @@ add icon del header en caso de llegar a su máximo width. */
   /* ----- PRODUCTOS ----- */
   
   /* .productos {
-    padding: var(--spacing-14);
+    margin-top: var(--spacing-14);
   } */
   
   .productos__header {

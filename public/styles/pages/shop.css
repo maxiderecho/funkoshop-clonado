@@ -4,6 +4,7 @@
 
 .shop__container {
     padding: var(--spacing-14);
+    margin-bottom: auto;
 }
 
 .shop__content {
@@ -127,12 +128,6 @@
   
 /* ----- SHOP ----- */
   
-.shop {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-14);
-}
-  
 .shop__list {
     display: grid;
     grid-template-columns: 1fr;
@@ -141,12 +136,21 @@
 .shop__item {
     min-width: 33%;
 }
+
+.shop__empty {
+    font-size: var(--font-size-16px);
+    font-weight: 500;
+    margin-top: var(--spacing-10);
+    justify-self: center;
+    align-self: center;
+}
   
 /* ---------- Tablet Screen ---------- */
 
 @media screen and (min-width: 768px) {
     /* .shop__container {
         padding: var(--spacing-14);
+        margin-bottom: auto;
     } */
     
     .shop__content {
@@ -265,19 +269,22 @@
       
     /* ----- SHOP ----- */
       
-    /* .shop {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-14);
-    } */
-      
     .shop__list {
         /* display: grid; */
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .shop__item {
+    /* .shop__item {
         min-width: 33%;
+    } */
+
+    .shop__empty {
+        font-size: var(--font-size-18px);
+        /* font-weight: 500; */
+        margin-top: var(--spacing-36);
+        /* align-self: center; */
+        /* justify-self: center; */
+        grid-column: 1/3;
     }
 }
   
@@ -286,6 +293,7 @@
 @media screen and (min-width: 1024px) {  
     .shop__container {
         padding: var(--spacing-48) var(--spacing-14);
+        /* margin-bottom: auto; */
     }
   
     .shop__content {
@@ -373,19 +381,22 @@
     }
     
     /* ----- SHOP ----- */
-  
-    /* .shop {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-14);
-    } */
-      
+        
     .shop__list {
         /* display: grid; */
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .shop__item {
+    /* .shop__item {
         min-width: 33%;
+    } */
+
+    .shop__empty {
+        font-size: var(--font-size-20px);
+        /* font-weight: 500; */
+        /* margin-top: var(--spacing-36); */
+        /* align-self: center; */
+        /* justify-self: center; */
+        grid-column: 1/4;
     }
 }

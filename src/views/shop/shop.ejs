@@ -98,6 +98,9 @@
                 </article>
               </li>
             <% }) %>
+            <% if (filteredItems.length === 0) { %>
+              <p class="shop__empty">No se han encontrado coincidencias.</p>
+            <% } %>
           </ul>
         </main>
       </div>
