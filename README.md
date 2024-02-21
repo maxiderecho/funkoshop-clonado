@@ -14,8 +14,23 @@ Link: https://funkoshop-clonado.vercel.app/
 
 ## :framed_picture: Capturas
 
-| ![Captura 1](/public/img/capturas/screen-1.png) | ![Captura 2](/public/img/capturas/screen-2.png) |
-| ![Captura 3](/public/img/capturas/screen-3.png) | ![Captura 4](/public/img/capturas/screen-4.png) |
+<div style="display: flex;">
+    <div style="width: 50%;">
+        ![Captura 1](/public/img/capturas/screen-1.png)
+    </div>
+    <div style="width: 50%;">
+        ![Captura 2](/public/img/capturas/screen-2.png)
+    </div>
+</div>
+
+<div style="display: flex;">
+    <div style="width: 50%;">
+        ![Captura 3](/public/img/capturas/screen-3.png)
+    </div>
+    <div style="width: 50%;">
+        ![Captura 4](/public/img/capturas/screen-4.png)
+    </div>
+</div>
 
 ## Características
 
