@@ -89,10 +89,7 @@ export const registerValidation = [
         })
         .withMessage('Las contraseñas no coinciden.'),
     body('password')
-        .customSanitizer(async (value) => await bcrypt.hash(value, 12)),
-    body('terminos')
-        .notEmpty()
-        .withMessage('Acepte los términos y condiciones para avanzar.')    
+        .customSanitizer(async (value) => await bcrypt.hash(value, 12))
 ];
 
 export const adminLoggedValidation = (req, res, next) => {
