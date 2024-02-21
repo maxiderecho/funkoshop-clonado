@@ -15,10 +15,29 @@ export const shop = async (req, res) => {
         });
     };
 
-    if ((query.order) && (query.order != 'todos')) {
+    if ((query.cat) && (query.cat != 'todos')) {
         filteredItems = filteredItems.filter(item => {
-            return item.category_name.toLowerCase().includes(query.order.toLowerCase())
+            return item.category_name.toLowerCase().includes(query.cat.toLowerCase())
         });
+    };
+
+    if (query.order) {
+        switch (query.order) {
+            case 'maxprice':
+                filteredItems.sort((a, b) => b.price - a.price);
+                break;
+            case 'minprice':
+                filteredItems.sort((a, b) => a.price - b.price);
+                break;
+            case 'az':
+                filteredItems.sort((a, b) => a.product_name.localeCompare(b.product_name));
+                break;
+            case 'za':
+                filteredItems.sort((a, b) => b.product_name.localeCompare(a.product_name));
+                break;
+            default:
+                break;
+        };
     };
 
     const minPrice = isNaN(parseInt(query.min)) ? 0 : parseInt(query.min);

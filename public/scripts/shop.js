@@ -14,6 +14,7 @@ filterButton.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   const searchInput = document.getElementById('search');
+  const catSelect = document.getElementById('cat');
   const orderSelect = document.getElementById('order');
   const priceInputs = document.querySelectorAll('.filter__price');
 
@@ -36,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (urlParams.search) {
       searchInput.value = urlParams.search;
     };
+
+    if (urlParams.cat) {
+      catSelect.value = urlParams.cat;
+  };
 
     if (urlParams.order) {
         orderSelect.value = urlParams.order;
@@ -63,6 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchValue = searchInput.value.trim().replace(/ /g, "");
     if (searchValue) {
       params.append('search', searchValue);
+    }
+
+    // Agrego parámetros cat
+    const catValue = catSelect.value;
+    if (catValue) {
+      params.append('cat', catValue);
     }
 
     // Agrego parámetros order
@@ -98,6 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
           submitForm();
       }
   });
+
+  catSelect.addEventListener('change', function() {
+    submitForm();
+});
 
   orderSelect.addEventListener('change', function() {
       submitForm();
