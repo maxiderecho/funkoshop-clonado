@@ -20,9 +20,9 @@
               Licencia:
               <select class="create__select" name="licencia" id="licencia" required>
                 <option value="" disabled selected hidden>Seleccionar</option>
-                <option value="1">Pokemon</option>
-                <option value="2">Star Wars</option>
-                <option value="3">Harry Potter</option>
+                <% licence.forEach(licence => { %>
+                <option value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
+                <% }) %>
               </select>
             </label>
           </div>
@@ -54,19 +54,19 @@
 
             <label class="create__label" for="precio">
               Precio:
-              <input class="create__input create__price" type="number" name="precio" id="precio" placeholder="$0.000,00" required/>
+              <input class="create__input create__price" type="number" name="precio" id="precio" min="0" max="99999" placeholder="$0.000,00" required/>
             </label>
 
             <label class="create__label" for="stock">
               Stock:
-              <input class="create__input create__stock" type="number" name="stock" id="stock" placeholder="0" required/>
+              <input class="create__input create__stock" type="number" name="stock" id="stock" min="0" max="9999" placeholder="0" required/>
             </label>
           </div>
 
           <div class="create__content">
             <label class="create__label" for="descuento">
               Descuento:
-              <input class="create__input create__descuento" type="number" name="descuento" id="descuento" placeholder="0%" />
+              <input class="create__input create__descuento" type="number" name="descuento" id="descuento" min="0" max="100" placeholder="0%" />
             </label>
 
             <label class="create__label" for="cuotas">

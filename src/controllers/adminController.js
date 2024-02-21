@@ -1,4 +1,5 @@
 import { findAll, findOne, createOne, editOne, deleteOne } from '../models/productModel.js';
+import { licences } from "../models/licenceModel.js";
 import { validationResult } from "express-validator";
 
 /* Configuro capa de controladores para adminRoutes.js */
@@ -24,9 +25,12 @@ export const admin = async (req, res) => {
     });
 };
 
-export const createView = (req, res) => { 
+export const createView = async (req, res) => { 
+    const licence = await licences();
+
     res.render('../views/admin/create-item.ejs', {
-        title: 'Crear Item'
+        title: 'Crear Item',
+        licence
     });
 };
 
@@ -42,31 +46,38 @@ export const createItem = async (req, res) => {
     }
 
     const product_DB = {
-        product_name: req.body.nombre,
-        product_description: req.body.descripcion,
-        price: Number(req.body.precio),
-        stock: Number(req.body.stock),
-        discount: Number(req.body.descuento),
-        sku: req.body.sku,
-        dues: req.body.cuotas,
-        image_front: '/img/products/' + req.files.imgFront[0].filename,
-        image_back: '/img/products/' + req.files.imgBack[0].filename,
-        category_id: Number(req.body.categoria),
-        licence_id: Number(req.body.licencia)
+      product_name: req.body.nombre,
+      product_description: req.body.descripcion,
+      price: Number(req.body.precio),
+      stock: Number(req.body.stock),
+      discount: Number(req.body.descuento),
+      sku: req.body.sku,
+      dues: req.body.cuotas,
+      image_front: req.files.imgFront ? '/img/products/' + req.files.imgFront[0].filename : '/img/prueba/goku-super-saiyan-1.png',
+      image_back: req.files.imgBack ? '/img/products/' + req.files.imgBack[0].filename : '/img/prueba/goku-super-saiyan-box.png',
+      category_id: Number(req.body.categoria),
+      licence_id: Number(req.body.licencia)
+    };
+
+    try {
+        await createOne([Object.values(product_DB)]);        
+    } catch (error) {
+        console.error("Ha ocurrido un error: " + error);
+    } finally {
+        res.redirect('/admin');
     };
   
-    await createOne([Object.values(product_DB)]);
-  
-    res.redirect('/admin');
 };
 
 export const editView = async (req, res) => {
     const {id} = req.params;
+    const licence = await licences();
     const [product] = await findOne({product_id: id});
 
     res.render('../views/admin/edit-item.ejs', {
         title: 'Editar Item',
-        product
+        product,
+        licence
     });
 };
 
@@ -83,25 +94,9 @@ export const editItem = async (req, res) => {
             errors: errors.array(),
             product
         });
-    }
+    };
 
-    const haveImages = (Object.keys(req.files).length) !== 0;
-
-    const product_DB = haveImages
-    ? {
-        product_name: req.body.nombre,
-        product_description: req.body.descripcion,
-        price: Number(req.body.precio),
-        stock: Number(req.body.stock),
-        discount: Number(req.body.descuento),
-        sku: req.body.sku,
-        dues: req.body.cuotas,
-        image_front: '/img/products/' + req.files.imgFront[0].filename,
-        image_back: '/img/products/' + req.files.imgBack[0].filename,
-        category_id: Number(req.body.categoria),
-        licence_id: Number(req.body.licencia)
-    }
-    : {
+    const product_DB = {
         product_name: req.body.nombre,
         product_description: req.body.descripcion,
         price: Number(req.body.precio),
@@ -113,15 +108,31 @@ export const editItem = async (req, res) => {
         licence_id: Number(req.body.licencia)
     };
 
-    await editOne(product_DB, {product_id: id});
+    if (req.files.imgFront && req.files.imgFront[0]) {
+        product_DB.image_front = '/img/products/' + req.files.imgFront[0].filename;
+    };
 
-    res.redirect('/admin');
+    if (req.files.imgBack && req.files.imgBack[0]) {
+        product_DB.image_back = '/img/products/' + req.files.imgBack[0].filename;
+    };
+
+    try {
+        await editOne(product_DB, {product_id: id});
+    } catch (error) {
+        console.error("Ha ocurrido un error: " + error);
+    } finally {
+        res.redirect('/admin');
+    };
 };
 
 export const deleteItem = async (req, res) => {
     const { id } = req.params;
 
-    await deleteOne({product_id: id});
-
-    res.redirect('/admin');
+    try {
+        await deleteOne({product_id: id});
+    } catch (error) {
+        console.error("Ha ocurrido un error: " + error);
+    } finally {
+        res.redirect('/admin');
+    };
 };

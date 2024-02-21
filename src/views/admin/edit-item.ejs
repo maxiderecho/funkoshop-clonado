@@ -18,9 +18,9 @@
             <label class="create__label" for="licencia">
               Licencia:
               <select class="create__select" name="licencia" id="licencia" required>
-                <option <%= product.licence_id == '1' ? 'selected' : '' %> value="1">Pokemon</option>
-                <option <%= product.licence_id == '2' ? 'selected' : '' %> value="2">Star Wars</option>
-                <option <%= product.licence_id == '3' ? 'selected' : '' %> value="3">Harry Potter</option>
+                <% licence.forEach(licence => { %>
+                <option <%= product.licence_id == licence.licence_id ? 'selected' : '' %> value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
+                <% }) %>
               </select>
             </label>
           </div>
@@ -70,6 +70,8 @@
                 type="number"
                 name="precio"
                 id="precio"
+                min="0"
+                max="99999"
                 value="<%= product.price %>"
                 required
               />
@@ -82,6 +84,8 @@
                 type="number"
                 name="stock"
                 id="stock"
+                min="0"
+                max="9999"
                 value="<%= product.stock %>"
                 required
               />
@@ -96,6 +100,8 @@
                 type="number"
                 name="descuento"
                 id="descuento"
+                min="0"
+                max="100"
                 value="<%= product.discount %>"
               />
             </label>
