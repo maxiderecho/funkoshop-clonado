@@ -20,10 +20,11 @@ export const home = async (req, res) => {
     }
 
     const licenceList = getSort(licence, 3);
+    const itemsList = getSort(items, 12)
   
     res.render('../views/index.ejs', {
         title: 'Home',
-        items,
+        itemsList,
         licenceList
     });
 };

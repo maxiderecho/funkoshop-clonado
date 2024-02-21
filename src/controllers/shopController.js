@@ -60,9 +60,28 @@ export const item = async (req, res) => {
     const items = await findAll();
     const [item] = await findOne({product_id: id})
 
+    const sort = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    };
+  
+    const getSort = (array, size) => {
+       const sortedArray = sort(array);
+       return sortedArray.slice(0, size);
+    };
+    
+    const itemsRelacionados = items.filter(product => {
+        return product.licence_name.includes(item.licence_name);
+    });
+
+    const itemsList = getSort(itemsRelacionados, 12)
+
     res.render('../views/shop/item.ejs', {
         title: 'Item',
-        items,
+        itemsList,
         item
     });
 };
