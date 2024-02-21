@@ -2,7 +2,7 @@
 
 Este proyecto de un e-commerce se basa en la clonación de una página web de una tienda de Funkos ficticia llamada Funkoshop.
 
-La maquetación de la web fue otorgada por el curso Codo a Codo 4.0.
+La maquetación de la web:
 
 https://www.figma.com/file/IjTSeE2BpRd5Gk9VakNIhC/Challenge-Integrador---Funkoshop?type=design&node-id=19905-435&mode=design
 
@@ -11,6 +11,13 @@ https://www.figma.com/file/IjTSeE2BpRd5Gk9VakNIhC/Challenge-Integrador---Funkosh
 El proyecto está desplegado en vercel.
 
 Link: https://funkoshop-clonado.vercel.app/
+
+## :framed_picture: Capturas
+
+<image src="/public/img/capturas/screen-1.png" alt="Captura 1">
+<image src="/public/img/capturas/screen-2.png" alt="Captura 2">
+<image src="/public/img/capturas/screen-3.png" alt="Captura 3">
+<image src="/public/img/capturas/screen-4.png" alt="Captura 4">
 
 ## Características
 

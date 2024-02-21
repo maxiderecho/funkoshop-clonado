@@ -74,7 +74,7 @@ export const item = async (req, res) => {
     };
     
     const itemsRelacionados = items.filter(product => {
-        return product.licence_name.includes(item.licence_name);
+        return product.licence_name.includes(item.licence_name) && product.product_id != id;
     });
 
     const itemsList = getSort(itemsRelacionados, 12)

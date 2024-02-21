@@ -5,6 +5,15 @@ if (cartItem){
         let buttonAdd = document.querySelector(`#add-${index}`);
         let buttonSubtract = document.querySelector(`#subtract-${index}`);
         let itemQuantity = document.querySelector(`#quantity-${index}`);
+
+        itemQuantity.readOnly = true;
+
+        itemQuantity.addEventListener('input', function () {
+            this.value = this.value.replace(/^0+/, '').replace(/[^0-9]/g, '');
+            if (this.value === '') {
+                this.value = 1;
+            };
+        });
         
         buttonAdd.addEventListener('click', () => {
             itemQuantity.value = Number(itemQuantity.value) + 1;
@@ -12,23 +21,13 @@ if (cartItem){
             buttonSubtract.disabled = true;
         });
         
-        buttonSubtract.addEventListener('click', () => {
-            if (Number(itemQuantity.value) >= 2) {
+        if (Number(itemQuantity.value) > 1) {
+            buttonSubtract.addEventListener('click', () => {
                 itemQuantity.value = Number(itemQuantity.value) - 1;
                 buttonAdd.disabled = true;
                 buttonSubtract.disabled = true;
-            }
-        });
-    
-        itemQuantity.addEventListener('input', function () {
-            this.value = this.value.replace(/^0+/, '');
-            this.value = this.value.replace(/[^0-9]/g, '');
-            if (this.value === '') {
-                this.value = 1;
-            };
-        });
-        
-        itemQuantity.readOnly = true;
+            });
+        };
     });
 };
 
@@ -48,7 +47,7 @@ const quantityUpdate = (itemId, quantityOperation) => {
     })
     .catch(error => {
         throw new Error(`Ha ocurrido un error: ${error}`);
-    });
+    });    
 };
 
 
