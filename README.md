@@ -16,19 +16,19 @@ Link: https://funkoshop-clonado.vercel.app/
 
 <div style="display: flex;">
     <div style="width: 50%;">
-        ![Captura 1](/public/img/capturas/screen-1.png)
+        <image src="/public/img/capturas/screen-1.png" alt="Captura 1">
     </div>
     <div style="width: 50%;">
-        ![Captura 2](/public/img/capturas/screen-2.png)
+        <image src="/public/img/capturas/screen-2.png" alt="Captura 2">
     </div>
 </div>
 
 <div style="display: flex;">
     <div style="width: 50%;">
-        ![Captura 3](/public/img/capturas/screen-3.png)
+        <image src="/public/img/capturas/screen-3.png" alt="Captura 3">
     </div>
     <div style="width: 50%;">
-        ![Captura 4](/public/img/capturas/screen-4.png)
+        <image src="/public/img/capturas/screen-4.png" alt="Captura 4">
     </div>
 </div>
 
